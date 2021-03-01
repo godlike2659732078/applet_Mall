@@ -1,0 +1,47 @@
+<!--pages/address/address.wxml-->
+<view>
+	<van-nav-bar id="reset" title="实名认证" bind:click-left="onClickLeft" custom-style="height:{{navH}}rpx; background:linear-gradient(to right, #ff592d,#ff2e40);  ">
+		<view style="height:100rpx;display:flex;align-items:center" slot="left">
+			<van-icon name="arrow-left" custom-class="icon " size="40rpx" />
+		</view>
+	</van-nav-bar>
+	<view class="contain">
+		<form bindsubmit="formSubmit">
+			<view class="setBox">
+				<view class="set_">
+					<text>姓名</text>
+					<input type="text" name="name"  placeholder="请填写姓名" placeholder-class="placeholderStyle"></input>
+				</view>
+				<view class="set_sex">
+					<text>性别</text>
+					<radio-group name="sex">
+						<label>
+							<radio value="男" checked />男</label>
+						<label>
+							<radio value="女" />女</label>
+					</radio-group>
+				</view>
+				<view class="get_">
+					<text>身份证号</text>
+					<input type="number" name="idNumber" placeholder="请填写身份证号码" placeholder-class="placeholderStyle"></input>
+				</view>
+				<view class="uploadBox">
+					<view class="upload" bindtap="chooseFace">
+						<image class="positive" src="{{image_face}}"></image>
+						<text>请上传身份证正面</text>
+					</view>
+					<view class="upload" bindtap="chooseBack">
+						<image class="positive" src="{{image_back}}"></image>
+						<text>请上传身份证反面</text>
+					</view>
+				</view>
+
+			</view>
+			<view class="determine_btn">
+				<van-button form-type="submit" class="determine" block round color="linear-gradient(to right, #FF5D2B, #FF2B41)">
+					确认
+				</van-button>
+			</view>
+		</form>
+	</view>
+</view>

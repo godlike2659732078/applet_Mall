@@ -1,0 +1,48 @@
+<view>
+	<van-nav-bar id="reset" title="通知" bind:click-left="onClickLeft"
+		custom-style="height:{{navH}}rpx; background:linear-gradient(to right, #ff592d,#ff2e40);  ">
+		<view style="height:100rpx;display:flex;align-items:center" slot="left">
+			<van-icon name="arrow-left" custom-class="icon " size="40rpx" />
+		</view>
+	</van-nav-bar>
+	<!-- 分类列表区域 -->
+	<view class="contain">
+		<scroll-view scroll-y="true" bindscrolltolower="loadMore" style="height:89vh;width:100%;">
+			<view class="headerBox">
+				<view class="notice_view acea-row row-between-wrapper">
+					<view class="notice_left_view acea-row row-middle">
+						<image class="notice_image" src="/images/home/notice_image.png" />
+						<text class="notic_title">链上公告</text>
+					</view>
+					<view class="notice_right_view">
+						<swiper indicator-dots="{{false}}" vertical="{{true}}" autoplay="{{true}}" circular="{{true}}"
+							interval="{{3000}}" duration="{{500}}">
+							<block wx:for="{{noticeList}}" wx:key="index">
+								<swiper-item>
+									<text class="notice_text" bindtap="gotoDetails" data-id="{{item.uuid}}">{{item.title}}</text>
+								</swiper-item>
+							</block>
+						</swiper>
+					</view>
+				</view>
+			</view>
+
+
+			<block wx:for="{{collegeList}}" wx:key="index">
+				<view class="college_box" bindtap="gotoDetail" data-id="{{item.id}}">
+					<view class="image">
+						<image class="image_" src="{{item.image}}"></image>
+					</view>
+					<view class="text_box">
+						<text wx:if="{{item.status==0}}" class="title">{{item.title}}</text>
+						<text wx:else class="titles">{{item.title}}</text>
+						<view class="time_author">
+							<text>{{item.introduce}}</text>
+						</view>
+					</view>
+				</view>
+			</block>
+		</scroll-view>
+	</view>
+
+</view>

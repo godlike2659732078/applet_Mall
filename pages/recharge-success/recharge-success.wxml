@@ -1,0 +1,41 @@
+<view>
+	<van-nav-bar id="reset" bind:click-left="onClickLeft" custom-style="height:{{navH}}rpx; background:linear-gradient(to right, #ff592d,#ff2e40);  ">
+		<view style="height:100rpx;display:flex;align-items:center" slot="left">
+			<van-icon name="arrow-left" custom-class="icon " size="40rpx" />
+		</view>
+	</van-nav-bar>
+	<view class="contain">
+		<view class="head">
+			<image class="headBg" src="../../images/order/orderSuccess/order_success_bg.png"></image>
+			<text class="success">充值成功</text>
+			<text class="text">感谢您对我们的信任与支持，欢迎下次再来!</text>
+			<view class="imageTip">
+				<image class="tip" src="../../images/order/orderSuccess/success_tip.png"></image>
+			</view>
+
+		</view>
+		<view class="box">
+			<view class="textall">
+				<text>交易编号</text>
+				<text>201703216324</text>
+			</view>
+			<view class="textall">
+				<text>交易方式</text>
+				<text>微信支付</text>
+			</view>
+			<view class="textall">
+				<text>充值金额</text>
+				<text>￥1180.00</text>
+			</view>
+			<view class="textall">
+				<text>交易时间</text>
+				<text>2018.12.19</text>
+			</view>
+		</view>
+		<view class="surebtn">
+			<text class="btn">
+		确定
+		</text>
+		</view>
+	</view>
+</view>

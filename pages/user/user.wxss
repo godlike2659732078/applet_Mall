@@ -1,0 +1,198 @@
+@import '/app.wxss';
+
+.van-info {
+  position: absolute;
+  top: 40rpx;
+}
+
+.user_per_service_right_image {
+  width: 15rpx;
+  height: 21rpx;
+}
+
+.user_per_service_right_title {
+  font-size: 28rpx;
+  color: #4f4f4f;
+}
+
+.user_per_service_right_btm_border {
+  border-bottom: 1rpx solid#ececec;
+}
+
+.user_per_service_right_view {
+  flex: 1;
+  height: 100%;
+  padding-right: 28rpx;
+}
+
+.user_per_service_left_image {
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.user_per_service_left_view {
+  padding: 0 22rpx;
+  display: flex;
+  text-align: center;
+}
+
+.user_per_service_view {
+  height: 90rpx;
+  width: 100%;
+}
+
+.user_service_list_view {
+  margin-top: 7rpx;
+}
+
+.user_my_service_top_view {
+  padding: 0 30rpx;
+}
+
+.user_my_service_view {
+  margin-top: 15rpx;
+}
+
+.user_order_type_status {
+  margin-top: 10rpx;
+  font-size: 26rpx;
+  font-weight: bold;
+  color: #313131;
+}
+
+.user_order_type_num {
+  font-size: 26rpx;
+  font-weight: bold;
+  color: #313131;
+}
+
+
+.user_order_type_list_view {
+  padding: 25rpx 100rpx;
+}
+
+.user_order_top_right_text {
+  font-size: 28rpx;
+  color: #acacac;
+}
+
+.user_per_view_title {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #313131;
+}
+
+.user_order_top_view {
+  padding: 0 30rpx;
+}
+
+.user_order_view {
+  margin-top: 25rpx;
+}
+
+.user_open_vip_view .open_vip_right_image {
+  margin-left: 10rpx;
+  width: 13rpx;
+  height: 24rpx;
+}
+
+.user_open_vip_view .open_vip_right_text {
+  font-size: 28rpx;
+  color: #7b5533;
+}
+
+.user_open_vip_view .open_vip_left_text {
+  margin-left: 16rpx;
+  font-size: 28rpx;
+  color: #7b5533;
+  font-weight: bold;
+}
+
+.user_open_vip_view .open_vip_image {
+  width: 41rpx;
+  height: 41rpx;
+}
+
+.user_open_vip_view {
+  padding: 0 20rpx 0 15rpx;
+  width: 100%;
+  height: 95rpx;
+  border-radius: 10rpx;
+  background: linear-gradient(to right, #f9bf8b, #ffddbf);
+}
+
+.user_open_vip_view_view {
+  margin-top: 48rpx;
+  width: 100%;
+  padding: 0 30rpx;
+}
+
+.head_menu_title {
+  margin-top: 20rpx;
+  font-size: 26rpx;
+  color: #313131;
+}
+
+.head_menu_image {
+  width: 56rpx;
+  height: 54rpx;
+}
+
+
+
+.head_menu_list_view {
+  margin-top: 18rpx;
+  padding: 0 70rpx;
+}
+
+.user_head_id_view {
+  font-size: 26rpx;
+  color: #8f7d6d;
+}
+
+.user_head_level_view {
+  margin-left: 9rpx;
+  width: 130rpx;
+  height: 36rpx;
+  background-color: #c6c6c6;
+  border-radius: 18rpx;
+  font-size: 26rpx;
+  text-align: center;
+  color: #ffffff;
+}
+
+.user_head_level_img {
+  margin-left: 9rpx;
+  width: 130rpx;
+  height: 36rpx;
+
+}
+
+.user_head_nick_name {
+  font-size: 32rpx;
+  color: #3a3a3a;
+}
+
+.user_head_user_info_view {
+  margin-left: 19rpx;
+}
+
+.user_head_avatar {
+  border-radius: 50%;
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.user_head_view {
+  padding: 30rpx;
+}
+
+.pageContent {
+  background: #ffffff;
+}
+
+button[plain] {
+  border: 0;
+  width: 100%;
+  padding: 0rpx;
+}

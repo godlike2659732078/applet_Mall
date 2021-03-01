@@ -1,0 +1,99 @@
+/* pages/buySucess/buySucess.wxss */
+/* pages/success/success.wxss */
+@import '/app.wxss';
+#reset{
+display: block;
+width: 100%;
+  position: fixed;
+  top: 0rpx;
+}
+.contain{
+width: 100%;
+position: fixed;
+top: 10%;
+}
+.head{
+  width: 100%;
+  height: 316rpx;
+  text-align: center;
+  position: relative;
+}
+.headBg{
+  width: 100%;
+  height: 252rpx;
+}
+.success{
+  display: block;
+  width: 100%;
+  text-align: center;
+  color: #FFFFFF;
+  font-size: 60rpx;
+  padding: 30rpx;
+  box-sizing: border-box;
+  position: absolute;
+  top:3rpx;
+
+}
+.text{
+  display: block;
+  width: 100%;
+  font-size: 28rpx;
+  color: #fff;
+  position: absolute;
+  top: 120rpx;
+}
+.imageTip{
+  width: 100%;
+  position: absolute;
+  top: 170rpx;
+  display: flex;
+  justify-content: center;
+}
+.tip{
+  display: block;
+  width: 124rpx;
+  height: 124rpx;
+ 
+
+  
+}
+.box{
+  
+  width: 100%;
+  height: 268rpx;
+  margin-top: 148rpx;
+}
+.textall{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0rpx 60rpx;
+  height: 67rpx;
+}
+.textall text:first-child{
+  font-size: 30rpx;
+  color: #3d3d3d;
+  
+}
+.textall text:last-child{
+  color: #FF5C2C;
+  font-size: 30rpx
+
+}
+.surebtn{
+  width: 100%;
+  height: 98rpx;
+padding: 0rpx 76rpx;
+margin-top: 242rpx;
+}
+.btn{
+  display: block;
+  width: 600rpx;
+  height: 98rpx;
+  background:linear-gradient(to right,#FF5D2B,#FF2B41);
+  border-radius: 50rpx;
+  text-align: center;
+  color:#fff;
+  font-size: 32rpx;
+  line-height: 36rpx;
+}

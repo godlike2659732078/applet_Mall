@@ -1,0 +1,67 @@
+<!--pages/share/share.wxml-->
+<view>
+	<van-nav-bar id="reset" title="联系客服" bind:click-left="onClickLeft" custom-style="height:{{navH}}rpx; background:linear-gradient(to right, #ff592d,#ff2e40);  ">
+		<view style="height:100rpx;display:flex;align-items:center" slot="left">
+			<van-icon name="arrow-left" custom-class="icon " size="40rpx" />
+		</view>
+	</van-nav-bar>
+	<view class="contain">
+		<view class="text_box" bindtap="showQQ">
+			<text>
+	      客服QQ
+	     </text>
+			<van-icon name="arrow" color="#999999" />
+		</view>
+		<view class="text_box" bindtap="showWechat">
+			<text>
+	客服微信
+	</text>
+			<van-icon name="arrow" color="#999999" />
+		</view>
+		<view class="text_box" bindtap="showEmail">
+			<text>
+	客服邮箱
+	</text>
+			<van-icon name="arrow" color="#999999" />
+		</view>
+
+
+		<view class="text_box" bindtap="showPhone">
+			<text>
+	客服电话
+	</text>
+			<van-icon name="arrow" color="#999999" />
+		</view>
+		<van-popup show="{{ showWechat }}" round bind:close="onClose" closeable close-icon="close" custom-style="height:24vh">
+			<view class="wechat">
+				<view class="content_box">
+					<image class="wechat_code" src="{{wechat}}"></image>
+				</view>
+			</view>
+
+		</van-popup>
+		<van-popup show="{{ showEmail }}" round bind:close="onClose" closeable close-icon="close">
+			<view class="email">
+				<view class="content_box">
+					<text>{{email}}</text>
+					<text>点击复制像客服邮箱反馈问题</text>
+				</view>
+				<view class="click" bindtap='copyText' data-text="{{email}}">
+					<text>点击复制</text></view>
+			</view>
+
+		</van-popup>
+		<van-popup show="{{ showPhone }}" round bind:close="onClose" closeable close-icon="close">
+			<view class="phone">
+				<view class="content_box">
+					<text>{{phone}}</text>
+					<text>点击复制像客服电话反馈问题</text>
+				</view>
+				<view class="click" bindtap='copyText' data-text="{{phone}}">
+					<text>点击复制</text>
+				</view>
+			</view>
+		</van-popup>
+
+	</view>
+</view>

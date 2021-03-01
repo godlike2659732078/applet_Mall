@@ -1,0 +1,23 @@
+<view>
+	<van-nav-bar id="reset" title="我的线下" bind:click-left="onClickLeft" custom-style="height:{{navH}}rpx; background:linear-gradient(to right, #ff592d,#ff2e40);  ">
+		<view style="height:100rpx;display:flex;align-items:center" slot="left">
+			<van-icon name="arrow-left" custom-class="icon " size="40rpx" />
+		</view>
+	</van-nav-bar>
+	<view class="contain">
+		<view class="head">
+			<text class="name">用户名</text>
+			<text class="type">级别</text>
+			<text class="amt">分佣奖励</text>
+		</view>
+		<scroll-view scroll-y="true"  style="height:83.7vh;width:100%;">
+			<block wx:for="{{full_box}}" wx:key="index">
+				<view class="box">
+					<text>{{item.phone}}</text>
+					<text>{{item.type}}</text>
+					<text>{{item.backAmt}}</text>
+				</view>
+			</block>
+		</scroll-view>
+	</view>
+</view>

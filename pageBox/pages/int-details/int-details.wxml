@@ -1,0 +1,131 @@
+<import src="../../../wxParse/wxParse.wxml" />
+<view>
+	<van-nav-bar id="reset" title="商品详情" bind:click-left="onClickLeft" custom-style="height:{{navH}}rpx; background:linear-gradient(to right, #ff592d,#ff2e40); ">
+		<view style="height:100rpx;display:flex;align-items:center" slot="left">
+			<van-icon name="arrow-left" custom-class="icon " size="40rpx" />
+		</view>
+	</van-nav-bar>
+	<view class="contain">
+
+		<view class="banner_list_view">
+			<view class='index-bg' wx:if="{{details.firstPicture.length}}">
+				<swiper indicator-dots="true" autoplay="{{autoplay}}" circular="{{circular}}" interval="{{interval}}" duration="{{duration}}" indicator-color="rgba(255,255,255,0.6)" indicator-active-color="#ff6400">
+					<block wx:for="{{details.firstPicture}}" wx:key='index'>
+						<swiper-item>
+							<image src="{{item}}" class="slide-image" />
+						</swiper-item>
+					</block>
+				</swiper>
+			</view>
+		</view>
+		<view class="goods_desc">
+			<text class="goods_title">{{details.integralGoodsTitle}}</text>
+			<view class="goods_desc_middle acea-row row-between-wrapper">
+				<view class="goods_price_view">
+					<text class="goods_price">￥{{details.integralGoodsIntegralPrice}}</text>
+				</view>
+				<text class="text_int" wx:if="{{showJifen==1}}">{{details.integralGoodsIntegralPrice}}{{details.coinCode}}</text>
+				<text class="goods_sell">库存: {{details.amount}}</text>
+				<view>
+					<text class="goods_sell" wx:if="{{details.pageView!=null}}">浏览量:{{details.pageView}}</text>
+					<text class="goods_sell" wx:else >浏览量:0</text>
+				</view>
+			</view>
+			<view class="choose_attr_view acea-row row-between-wrapper" close-on-click-overlay="false" bindtap="showPopup">
+				<view class="choose_attr_left acea-row row-middle">
+					<text >规格</text>
+					<text >已选:"{{Specifications}}"</text>
+				</view>
+				<view>
+					<van-icon name="arrow" />
+				</view>
+			</view>
+			<van-popup class="showOpen" show="{{show}}" round position="bottom" custom-style="height: auto; ">
+				<view class="openHead">
+					<view class="head_image">
+						<image class="_image" src="{{details.picture}}">
+						</image>
+					</view>
+					<view class="head_text">
+						<text class="text_name">
+						{{details.integralGoodsTitle}}
+						</text>
+						<text class="text_big"></text>
+						<text class="text_price">￥{{details.price}}</text>
+
+						<text class="text_kc">库存{{details.amount}}件</text>
+					</view>
+					<van-icon class="close" bindtap="onClose" size="38rpx" name="close" />
+				</view>
+				<block>
+					<view class="openBooter">
+						<text class="booter_title">规格</text>
+						<view class="allSpecial">
+							<button wx:for="{{special}}" wx:key="index" class="{{index==idx?'special_hover':'special'}}" bindtap="chooseGg" data-items="{{item}}" data-index="{{index}}">{{item.value}}</button>
+						</view>
+					</view>
+				</block>
+				<view class="openFooter">
+					<text class="footer_title">购买数量</text>
+					<!-- 主容器 -->
+					<view class="stepper">
+						<!-- 减号 -->
+						<text class="{{minusStatus}}" bindtap="bindMinus">-</text>
+						<!-- 数值 -->
+						<input type="number" bindchange="bindManual" value="{{num}}" />
+						<!-- 加号 -->
+						<text class="normal" bindtap="bindPlus">+</text>
+					</view>
+					<view class="footer_end">
+						<!-- <van-button block round custom-style="width:450rpx;hieght:60rpx" color="linear-gradient(to right, #FF5D2B, #FF2B41)" bindtap="goToSub">立即购买</van-button> -->
+						<view class="subNav" wx:if="{{showJifen==1}}">
+							<van-button color="#FF992B" block bindtap="gotoIntsub" round custom-style="height:70rpx;width:600rpx">
+								积分换购
+							</van-button>
+
+						</view>
+					</view>
+				</view>
+			</van-popup>
+		</view>
+
+		<view class='product-intro' id="past3">
+			<view class='title'>商品详情</view>
+			<view class='conter'>
+				<template is="wxParse" data="{{wxParseData:integralGoodsContent.nodes}}" />
+			</view>
+			<view class="richText">
+				<!-- <rich-text class="details_box" nodes="{{details.detailPicture}}"></rich-text> -->
+			</view>
+		</view>
+		<van-popup round show="{{ show_share }}" position="bottom" custom-style="height:30%;" bind:close="closeShare">
+			<view class="wechatShare">
+				<button plain="true" open-type="share">
+					<image src="../../../images/user/wechart.png"></image>
+				</button>
+			</view>
+		</van-popup>
+		<view class="footer acea-row row-between-wrapper">
+			<view class="footer_left acea-row row-middle">
+				<!-- <button plain="true" class="btns" open-type="contact">
+					<image class="left_menu_image" src="/images/user/customer_service.png" />
+					<text >客服</text>
+				</button> -->
+				<view class="left_menu_view acea-row row-column-center" bindtap="showSharePop">
+					<image class="left_menu_image" src="../../../images/user/share.png"></image>
+					<text class="left_menu_title">分享</text>
+				</view>
+
+			</view>
+			<!-- <view class="to_buy_view" bindtap="showPopup">
+				<text>立即购买</text>
+			</view> -->
+			<view class="btnNav" wx:if="{{showJifen==1}}">
+				<van-button color="#FF992B" block bindtap="showPopup" round custom-style="height:60rpx;font-size:24rpx;width:100%">
+					积分秒杀
+				</van-button>
+			</view>
+		</view>
+
+	</view>
+</view>

@@ -1,0 +1,167 @@
+/* pages/losepwd/losepwd.wxss */
+
+@import '/app.wxss';
+
+
+.bg_box {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.bg_box>image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+page {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.contain {
+  width: 100%;
+  height: 100%;
+
+}
+
+.login_title {
+  width: 100%;
+  position: absolute;
+  top: 20%;
+  text-align: center;
+  color: #FF1940;
+  font-size: 50rpx;
+  font-family: SourceHanSansSC-Regular;
+}
+
+.phone {
+  display: inline-block;
+  width: 20rpx;
+  height: 30rpx;
+  position: absolute;
+  top: 30%;
+  left: 102rpx;
+}
+
+.phoneNum {
+  display: block;
+  width: 500rpx;
+  height: 30rpx;
+  position: absolute;
+  top: 29.5%;
+  left: 140rpx;
+}
+
+.mailIcon {
+  display: inline-block;
+  width: 28rpx;
+  height: 22rpx;
+  position: absolute;
+  top: 39.8%;
+  left: 100rpx;
+}
+
+.mailNum {
+  display: block;
+  width: 300rpx;
+  height: 30rpx;
+  position: absolute;
+  top: 39%;
+  left: 140rpx;
+}
+
+.getCode {
+  width: 134rpx;
+  height: 45rpx;
+  padding: 0rpx;
+  border-radius: 60rpx;
+  font-size: 20rpx;
+  color: #949499;
+  position: absolute;
+  left: 502rpx;
+  top: 39%;
+}
+
+.goToIndex {
+  position: absolute;
+  left: 590rpx;
+
+  top: 66%;
+}
+
+.goIng {
+  display: inline-block;
+  width: 120rpx;
+  height: 120rpx;
+
+}
+
+.login_register text {
+  display: inline-block;
+  color: #FFFFFF;
+  font-size: 26rpx;
+  position: absolute;
+  left: 250rpx;
+  bottom: 68rpx;
+
+}
+
+.hr {
+  display: block;
+  width: 582rpx;
+  height: 2rpx;
+  background-color: #e4e4e4;
+  position: absolute;
+  top: 35%;
+  left: 82rpx;
+}
+
+.hrs {
+  display: block;
+  width: 582rpx;
+  height: 2rpx;
+  background-color: #e4e4e4;
+  position: absolute;
+  top: 45%;
+  left: 82rpx;
+}
+
+.popBox {
+  width: 556rpx;
+  height: auto;
+  padding-top: 34rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.popBox image {
+  width: 282rpx;
+  height: 266rpx;
+}
+
+.re_pwd {
+  padding: 42rpx 98rpx 0rpx;
+}
+
+.pwd_box {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pwd_box image {
+  width: 26rpx;
+  height: 30rpx;
+}
+
+.btn {
+  margin-top: 46rpx;
+}

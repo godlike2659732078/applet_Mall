@@ -1,0 +1,33 @@
+<view>
+	<van-nav-bar id="reset" title="我的积分" bind:click-left="onClickLeft" custom-style="height:{{navH}}rpx; background:linear-gradient(to right, #ff592d,#ff2e40);  ">
+		<view style="height:100rpx;display:flex;align-items:center" slot="left">
+			<van-icon name="arrow-left" custom-class="icon " size="40rpx" />
+		</view>
+	</van-nav-bar>
+	<view class="contain">
+		<view class="indexes_box">
+			<block wx:for="{{coinList}}" wx:key="index">
+				<view class="examine" bindtap="goToAudit" data-coinId="{{item.coinId}}" bindtap="gotoDetail">
+					<view class="icon_text">
+						<image src="{{item.image}}"></image>
+						<view class="textBox">
+							<text class="coinName">{{item.coinName}}</text>
+							<text class="yue">
+          数量：{{item.amount}}
+          </text>
+						</view>
+
+					</view>
+					<van-icon size="40rpx" color="#C5C5C5" name="arrow" />
+				</view>
+
+			</block>
+
+		</view>
+		<view class="fixBox" bindtap="goToIncome">
+			<van-icon color="#fff" size="26rpx" name="records" />
+			<text>明细</text>
+		</view>
+	
+	</view>
+</view>

@@ -1,0 +1,57 @@
+<view>
+	<van-nav-bar id="reset" title="找回密码" bind:click-left="onClickLeft" custom-style="height:{{navH}}rpx; background:linear-gradient(to right, #ff592d,#ff2e40);  ">
+		<view style="height:100rpx;display:flex;align-items:center" slot="left">
+			<van-icon name="arrow-left"  custom-class="icon "  size="40rpx" />
+		</view>
+	</van-nav-bar>
+	<view class="contain">
+		<view class='bg_box'>
+			<image src='../../images/login/login_bg.png'></image>
+		</view>
+		<view class="login_title">
+			<text >忘记密码</text>
+		</view>
+		<view class="login_booter">
+			<view class="first_">
+				<image class="phone" src="../../images/login/login_Tel.png"></image>
+				<input class="phoneNum" bindinput="getMobile" bindblur="phoneBlur" placeholder="手机号" placeholder-style="color:#949499; font-size:28rpx"></input>
+				<text class="hr"></text>
+			</view>
+			<view class="box_">
+				<image class="mailIcon" src="../../images/login/login_mail.png"></image>
+				<input class="mailNum" bindinput="getCode" placeholder="短信验证码" placeholder-style="color:#949499; font-size:26rpx"></input>
+				<van-button block class="getCode" disabled="{{disabled}}" bind:click="getCodes" size="mini" round>{{time}}</van-button>
+				<text class="hrs"></text>
+			</view>
+			<view class="goToIndex" bindtap="goToIndex">
+				<image class="goIng" src="../../images/login/login_confirm.png">
+				</image>
+			</view>
+			<van-popup show="{{ show }}" bind:close="onClose" round custom-style="height:678rpx;width:556rpx">
+				<form bindsubmit="formSubmit">
+					<view class="popBox">
+						<image src="../../images/login/change_img.png"></image>
+					</view>
+					<view class="re_pwd">
+						<view class="pwd_box">
+							<image src="../../images/login/login_pwd.png"></image>
+							<input type="text" name="rePwd" password="true" placeholder="请输入新密码"></input>
+						</view>
+					</view>
+					<view class="re_pwd">
+						<view class="pwd_box">
+							<image src="../../images/login/login_rpt.png"></image>
+							<input type="text" name="rePwds" password="true" placeholder="请重复输入新密码"></input>
+						</view>
+					</view>
+					<view class="btn">
+						<van-button form-type="submit" class="btns"  custom-style="width:350rpx;height:68rpx" block round color="linear-gradient(to right, #FF5D2B, #FF2B41)">登录</van-button>
+					</view>
+				</form>
+			</van-popup>
+			<view class="login_register" bindtap="goToregister">
+				<text>还没有账号？去注册</text>
+			</view>
+		</view>
+	</view>
+</view>

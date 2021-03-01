@@ -1,0 +1,128 @@
+{
+  "pages":[ 
+    "pages/index/index",
+    "pages/read/read",
+    "pages/user/user",
+    "pages/pushDetails/pushDetails",
+    "pages/login/login",
+    "pages/pushList/pushList",
+    "pages/orderLogs/orderLogs",
+    "pages/myPoints/myPoints",
+    "pages/shopDetails/shopDetails",
+
+    "pages/outoper/outoper",
+    "pages/operationList/operationList",
+    "pages/brief/brief",
+    "pages/place/place",
+    "pages/invitation/invitation",
+    "pages/int-detailed/int-detailed",
+    "pages/subOrder_/subOrder_",
+    "pages/subOrders/subOrders",
+    "pages/subOrders_int/subOrders_int",
+    "pages/int-details/int-details",
+    "pages/register/register",
+    "pages/change-password/change-password",
+
+    "pages/history/history",
+    "pages/order/order",
+    "pages/record/record",
+    "pages/addressEdit/addressEdit",
+    "pages/addressAdd/addressAdd", 
+    "pages/bannerDetail/bannerDetail",
+    "pages/goods-details/goods-details",
+    "pages/sign/sign",
+    "pages/fullDetails/fullDetails",
+    "pages/account/account",
+    "pages/audit-status/audit-status",
+    "pages/buyvip/buyvip",
+    "pages/response/response",
+    "pages/agreement_vip/agreement_vip",
+    "pages/agreement/agreement",
+    "pages/recharge/recharge",
+    "pages/recharge-success/recharge-success",
+    "pages/search/search",
+    "pages/subOrder/subOrder",
+    "pages/account-settings/account-settings",
+    "pages/securitys/securitys",
+    "pages/real-name/real-name",
+    "pages/ruless/ruless",
+    "pages/change-payment/change-payment",
+    "pages/Alipay/Alipay",
+    "pages/AlipayAdd/AlipayAdd",
+    "pages/about/about",
+    "pages/customer/customer",
+    "pages/setpassword/setpassword",
+    "pages/address/address",
+    "pages/collegeDetails/collegeDetails",
+    "pages/newsDetails/newsDetails",
+    "pages/newsAll/newsAll",
+    "pages/noticeDetails/noticeDetails",
+    "pages/orderDetails/orderDetails",
+    "pages/losepwd/losepwd",
+   "pages/withdrawal/withdrawal",
+    "pages/income-detailed/income-detailed",
+    "pages/buySucess/buySucess",
+    "pages/apply/apply"
+  ],
+  "subpackages": [
+    {
+        "root": "pageBox/",
+        "name": "pages1",
+        "pages": [
+        
+          "pages/union-details/union-details",
+          "pages/union/union",
+          "pages/paid/paid",
+          "pages/coupon/coupon",
+          "pages/integral-list/integral-list",
+          "pages/goods-list/goods-list",
+          "pages/optimization/optimization",
+          "pages/college/college",
+          "pages/liveAll/liveAll",
+          "pages/agreement/agreement",
+          "pages/discount/discount",
+          "pages/int-details/int-details",
+          "pages/userId/userId"
+        
+        ]
+      }
+    ],
+  "plugins": {
+   
+  },
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationStyle":"custom",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "链上商城",
+    "navigationBarTextStyle":"black"
+  },
+
+  "tabBar": {
+    "backgroundColor": "#ffffff",
+    "color": "#282828", 
+    "selectedColor": "#e93323",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/tabbar/footer_home.png",
+        "selectedIconPath": "images/tabbar/footer_home_h.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/read/read",
+        "iconPath": "images/tabbar/footer_find.png",
+        "selectedIconPath": "images/tabbar/footer_find_h.png",
+        "text": "发现"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "iconPath": "images/tabbar/footer_my.png",
+        "selectedIconPath": "images/tabbar/footer_my_h.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

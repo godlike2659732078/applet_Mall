@@ -1,0 +1,68 @@
+<!--pages/address/address.wxml-->
+<view>
+	<van-nav-bar id="reset" title="积分转出" bind:click-left="onClickLeft" custom-style="height:{{navH}}rpx; background:linear-gradient(to right, #ff592d,#ff2e40);  ">
+		<view style="height:100rpx;display:flex;align-items:center" slot="left">
+			<van-icon name="arrow-left" custom-class="icon " size="40rpx" />
+		</view>
+	</van-nav-bar>
+	<view class="contain">
+		<loading hidden="{{hidden}}" >
+    加载中...
+  </loading>
+		<view class="editBox">
+
+			<view class="place" bindtap="showTpList">
+				<text class="title">选择积分</text>
+				<view class="right">
+					<text class="chooseAddress">{{store_type}}</text>
+					<van-icon name="arrow" size="40rpx" color="#CCCCCC" />
+				</view>
+			</view>
+			<view class="num">
+				<text class="type">{{link.coinName}}</text>
+				<view class="nums">
+					<text class="text">数量：</text>
+					<text class="num_item">{{link.useAmt}}</text>
+				</view>
+			</view>
+			<view class="num" wx:if="{{link.coinName=='CMT'}}">
+				<text class="type">转账手续费</text>
+				<view class="nums">
+					<text class="text">余额：</text>
+					<text class="num_item">{{useOutPower}}</text>
+				</view>
+			</view>
+			<form bindsubmit="formSubmit">
+				<view class="place_title">
+					<text> 积分地址：</text>
+					<van-icon name="scan" size="50rpx" color="#ff2e40" bindtap="getPlace" />
+				</view>
+				<view class="ipt">
+					<input type="text" placeholder="请输入转出积分地址" name="place" value="{{result}}" placeholder-style="color:#aaa"></input>
+				</view>
+				<view class="place_title">
+					<text> 转出数量：</text>
+
+				</view>
+				<view class="ipt">
+					<input type="number" placeholder="请输入转出数量" name="nums" value="{{allNums}}" placeholder-style="color:#aaa"></input>
+					<text bindtap="getAll">全部</text>
+				</view>
+				<view class="place_title">
+					<text> 支付密码：</text>
+				</view>
+				<view class="ipt">
+					<input type="password" placeholder="请输入支付密码" name="password" placeholder-style="color:#aaa"></input>
+				</view>
+				<view class="del">
+					<van-button round block form-type="submit" custom-style="width:60%;height:80rpx" color="linear-gradient(to right, #ff592d,#ff2e40);">
+						确认
+					</van-button>
+				</view>
+			</form>
+		</view>
+		<van-popup round show="{{ showTpList }}" position="bottom" custom-style="height:40vh;">
+			<van-picker columns="{{ columns }}" item-height="40" show-toolbar bind:cancel="cancleTp" bind:confirm="confirmTp" />
+		</van-popup>
+	</view>
+</view>

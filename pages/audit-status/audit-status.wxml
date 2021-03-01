@@ -1,0 +1,38 @@
+<!--pages/address/address.wxml-->
+<view>
+	<van-nav-bar id="reset" title="审核状态" bind:click-left="onClickLeft" custom-style="height:{{navH}}rpx; background:linear-gradient(to right, #ff592d,#ff2e40);  ">
+		<view style="height:100rpx;display:flex;align-items:center" slot="left">
+			<van-icon name="arrow-left"  custom-class="icon "  size="40rpx" />
+		</view>
+	</van-nav-bar>
+	<view class="contain">
+		<scroll-view scroll-y="true" style="height:90%;width:100%;">
+			<block wx:for="{{auditList}}" wx:key="index">
+				<view class="addressBox">
+					<image src="../../images/user/au_bg.jpg"></image>
+					<view class="audit_head">
+						<view class="main">
+							<text>￥{{item.amount}}</text>
+							<text>　{{item.reason}}</text>
+						</view>
+						<text style="color:blue">{{item.statusText}}</text>
+					</view>
+					<view class="audit_box">
+						<view class="details">
+							<text>服务费</text>
+							<text>{{item.amountFee}}</text>
+						</view>
+					
+						<view class="details">
+							<text>申请时间</text>
+							<text>{{item.createTime}}</text>
+						</view>
+					</view>
+				</view>
+
+			</block>
+			<!-- 新增收货地址 -->
+
+		</scroll-view>
+	</view>
+</view>

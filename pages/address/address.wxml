@@ -1,0 +1,47 @@
+<!--pages/address/address.wxml-->
+<view>
+	<van-nav-bar id="reset" title="我的收货地址" bind:click-left="onClickLeft" custom-style="height:{{navH}}rpx; background:linear-gradient(to right, #ff592d,#ff2e40);  ">
+		<view style="height:100rpx;display:flex;align-items:center" slot="left">
+			<van-icon name="arrow-left" custom-class="icon " size="40rpx" />
+		</view>
+	</van-nav-bar>
+	<view class="contain">
+		<scroll-view scroll-y="true" style="height:90%;width:100%;">
+			<block wx:for="{{addressList}}" wx:key="index">
+				<view class="addressBox">
+					<view data-id="{{item.id}}" bindtap="gotoSub">
+						<view class="box_head">
+							<text class="names">{{item.name}}</text>
+							<text class="phone"> {{item.phone}}</text>
+						</view>
+						<view class="address">
+							<text>{{item.address}}</text>
+						</view>
+					</view>
+					<view class="box_foot">
+						<view class="default">
+							<van-checkbox value="{{ item.isDefault==1 ?true:false }}" checked-color="#FF2B41" icon-size="34rpx" data-id="{{item.id}}" bind:change="onChange">设为默认</van-checkbox>
+						</view>
+						<view class="set">
+							<view class="edit" data-id="{{item.id}}" bindtap="goToEdit">
+								<van-icon class="iconset" size="30rpx" name="edit" />
+								<text>编辑</text>
+							</view>
+							<view class="del" bindtap="del" data-index="{{index}}" data-id="{{item.id}}">
+								<van-icon class="iconset" size="30rpx" name="delete" />
+								<text> 删除</text>
+							</view>
+						</view>
+					</view>
+				</view>
+			</block>
+			<!-- 新增收货地址 -->
+			<view class="addBtn">
+				<button class="btn_add" bindtap="foToAdd">
+					<van-icon size="30rpx" color="#BFBFBF" name="add-o" />
+					<text>添加地址</text>
+				</button>
+			</view>
+		</scroll-view>
+	</view>
+</view>

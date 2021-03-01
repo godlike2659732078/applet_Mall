@@ -1,0 +1,45 @@
+<view>
+	<van-nav-bar id="reset" title="签到" bind:click-left="onClickLeft" custom-style="height:{{navH}}rpx; background:linear-gradient(to right, #ff592d,#ff2e40);">
+		<view style="height:100rpx;display:flex;align-items:center" slot="left">
+			<van-icon name="arrow-left" custom-class="icon " size="40rpx" />
+		</view>
+	</van-nav-bar>
+	<view class="contain">
+		<view>
+			<image class="head_bg" src="../../images/user/userBg.png"></image>
+		</view>
+		<view class="sign_box">
+			<view class='calendar_title flex_nowrap'>
+				<view class='icon' bindtap='lastMonth'>
+				</view>
+				<view class="years">{{year}}年{{month}}月</view>
+				<view class='icon' bindtap='nextMonth'>
+				</view>
+			</view>
+			<!-- 日历主体 -->
+			<view class='calendar'>
+				<view class='header'>
+					<view wx:for='{{date}}' wx:key='index' class='{{(index == todayIndex) && isTodayWeek ? "weekMark" : ""}}'>{{item}}
+						<view></view>
+					</view>
+				</view>
+				<view class='date-box'>
+			<!-- <view style="width:100%;height:300rpx;background-color:red;"></view> -->
+						<view wx:for='{{dateArr}}' wx:for-item="datearr_item" wx:key='index' class='nowDay'>
+							<view wx:for="{{signRequire}}" wx:for-item="sign" wx:key='index'>
+								<view wx:if="{{datearr_item.dateNum==sign.day}}" class='a'>
+									<view>{{datearr_item.dateNum}}</view>
+								</view>
+							</view>
+							<view class='date-head'>
+								<view>{{datearr_item.dateNum}}</view>
+							</view>
+						</view>
+				</view>
+			</view>
+		</view>
+		<view class="signbtn">
+			<van-button class="signClick" block round custom-style="width:500rpx;height:68rpx" color=" #FF2B41" bindtap="signClick">点击签到</van-button>
+		</view>
+	</view>
+</view>

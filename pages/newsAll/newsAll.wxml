@@ -1,0 +1,40 @@
+<view id="app">
+	<van-nav-bar id="reset" title="资讯列表" bind:click-left="onClickLeft" custom-style="height:{{navH}}rpx; background:linear-gradient(to right, #ff592d,#ff2e40);  ">
+		<view style="height:100rpx;display:flex;align-items:center" slot="left">
+			<van-icon name="arrow-left" custom-class="icon " size="40rpx" />
+		</view>
+	</van-nav-bar>
+	<view class="pageContent" style="margin-top:{{navH}}rpx">
+		<view class="news_list_view">
+			<view class="news_list_title_view acea-row row-between-wrapper">
+				<view class="news_list_title_left_view acea-row row-middle">
+					<image class="news_list_title_left_image" src="/images/read/news.png" />
+					<text class="news_list_title_left_title">链上资讯</text>
+				</view >
+        <view class="news_box" >
+					<text class=" news_list_title_right_text {{curNav == item.id ? 'nav_left_items' : ''}}" wx:for="{{clickTag}}" wx:key="index"  bindtap="changeNeme" data-item="{{item}}" >{{item.name}}</text>
+			</view>
+      </view>
+			
+				<view class="news_lists_view">
+        <scroll-view scroll-y="true" bindscrolltolower="loadMore" style="height:{{boxHeight}}rpx;width:100%;">
+					<block wx:for="{{newsList}}" wx:key="index">
+						<view class="news_per_view acea-row row-between-wrapper" data-id="{{item.id}}" bindtap="gotoDetails">
+							<view class="news_per_left_image">
+								<image class="left_image" src="{{item.image}}"></image>
+							</view>
+							<view class="news_per_right_view acea-row row-column-between ">
+								<text class="news_per_title">{{item.title}}</text>
+								<view class="news_per_right_btm_view acea-row row-between-wrapper">
+									<text class="news_per_from">{{item.source}}</text>
+									<text class="news_per_time">{{item.time}}</text>
+								</view>
+							</view>
+						</view>
+					</block>
+          </scroll-view>
+				</view>
+			
+		</view>
+	</view>
+</view>

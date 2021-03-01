@@ -1,0 +1,45 @@
+<view>
+	<van-nav-bar id="reset" title="充值" bind:click-left="onClickLeft" custom-style="height:{{navH}}rpx; background:linear-gradient(to right, #ff592d,#ff2e40);  ">
+	<view style="height:100rpx;display:flex;align-items:center" slot="left">
+			<van-icon name="arrow-left" custom-class="icon " size="40rpx" />
+		</view>
+	</van-nav-bar>
+	<view class="contain">
+		<form bindsubmit="formSubmit">
+			<view class="head_box">
+				<view class="charge_num">
+					<text>￥</text>
+					<input  class="charge_input" name="nums" placeholder-class="charge_placeholder" type="number" placeholder="请输入充值金额"></input>
+				</view>
+			</view>
+			<view class="charge_type">
+				<view class="choose">
+					<text>选择支付方式</text>
+				</view>
+				<view class="pay_type">
+					<van-radio-group name="radio" value="{{ radio }}" bind:change="onChange">
+						<view class="wechat_pay">
+							<view class="image_box">
+								<image src="../../images/user/weChartw.png"></image>
+							</view>
+							<view class="text_box">
+								<text>微信客户端支付</text>
+								<text>推荐安装微信5.0及以上版本使用</text>
+							</view>
+							<van-radio name="1" icon-size="40rpx" checked-color="#68DD56"></van-radio>
+						</view>
+					</van-radio-group>
+				</view>
+			</view>
+			<view class="charge_btns" bindtap="goToSuccess">
+				<van-button form-type="submit"  class="charge_btn" block round color="linear-gradient(to right, #FF5D2B, #FF2B41)">
+					立即充值
+				</van-button>
+			</view>
+      <view class="agreement_text">
+			<text class="text">点击立即充值，即表示您已经同意</text>
+			<text class="agreement" bindtap="goToAgreement">《充值协议》</text>
+		</view>
+		</form>
+	</view>
+</view>

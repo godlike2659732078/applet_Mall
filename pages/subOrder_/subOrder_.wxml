@@ -1,0 +1,85 @@
+<view>
+	<van-nav-bar id="reset" title="提交订单" bind:click-left="onClickLeft" custom-style="height:{{navH}}rpx; background:linear-gradient(to right, #ff592d,#ff2e40);  ">
+		<view style="height:100rpx;display:flex;align-items:center" slot="left">
+			<van-icon name="arrow-left" custom-class="icon " size="40rpx" />
+		</view>
+	</van-nav-bar>
+	<view class="contain">
+		<!-- <van-loading type="spinner" /> -->
+		<view class="useAddress" wx:if="{{address==''}}" bindtap="goToAddress">
+			<!-- 新增收货地址 -->
+			<view class="addBtn">
+				<button class="btn_add" bindtap="foToAdd">
+					<van-icon size="30rpx" color="#BFBFBF" name="add-o" />
+					<text>添加地址</text>
+				</button>
+			</view>
+			<image class="border" src="../../images/order/border.png"></image>
+		</view>
+		<view class="useAddress" wx:else bindtap="goToAddress">
+			<text class="receive">
+收货人：{{address.name}}
+</text>
+			<text class="phone">{{address.phone}}</text>
+			<text class="address">收货地址：{{address.address}}</text>
+			<van-icon name="arrow" class="goToAddress" size="30rpx" color="#D9D9D9" />
+			<image class="border" src="../../images/order/border.png"></image>
+		</view>
+		<!-- <view class="timeBox">
+			<text class="title">配送时间：</text>
+			<text class="time">2018-11-23  13 : 30 - 14 : 30</text>
+			<van-icon class="timeIcon" name="arrow" size="30rpx" color="#D9D9D9" />
+		</view>
+		<view class="typeBox">
+			<text class="title">配送方式：</text>
+			<van-radio-group class="groups" value="{{ radio1 }}" bind:change="onChange">
+				<van-radio name="1" icon-size="24rpx" checked-color="#FF2150">物流配送</van-radio>
+				<van-radio name="2" icon-size="24rpx" checked-color="#FF2150">上门自提</van-radio>
+			</van-radio-group>
+		</view> -->
+		<view class="typeBox">
+			<text class="title">商品信息</text>
+		</view>
+
+		<view class="goods">
+			<view class="goodItem">
+				<view class="image">
+					<image class="orderImage" src="{{goodsDetail.picture}}"></image>
+				</view>
+				<text class="name">
+				{{goodsDetail.title}}
+				</text>
+				<text class="price">￥{{goodsDetail.price}}</text>
+				<text class="Specifications">
+				{{goodsAttr.title}}:{{goodsAttr.value}}
+				</text>
+				<text class="number">x{{goodsDetail.goodsNum}}</text>
+			</view>
+			<view class="allnum">
+				<text class="text">共{{goodsDetail.goodsNum}}件商品   合计：
+      </text>
+				<text class="allMoney">￥{{totalMoney}}</text>
+			</view>
+		</view>
+		<view class="weBox">
+			<view class="payType">
+				<text class="title">支付方式：</text>
+				<van-radio-group class="groups" value="{{ radio }}" bind:change="changeRadio">
+					<van-radio name="1" icon-size="28rpx" checked-color="#FF2150">微信支付</van-radio>
+					<van-radio name="2" icon-size="28rpx" checked-color="#FF2150">余额支付</van-radio>
+				</van-radio-group>
+			</view>
+			<view class="sureOrder_foot">
+				<view class="moneyAll">
+					<text>合计：</text>
+					<text>￥{{totalMoney}}</text>
+				</view>
+				<van-button size="normal" block="true" block round color="linear-gradient(to right, #FF5D2B,#FF2B41)" bindtap="goToBuysuccess" custom-style="height:60rpx">
+					立即支付
+				</van-button>
+			</view>
+		</view>
+	</view>
+
+
+</view>

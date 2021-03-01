@@ -1,0 +1,32 @@
+<view>
+	<van-nav-bar id="reset" title="联盟商家" bind:click-left="onClickLeft" custom-style="height:{{navH}}rpx; background:linear-gradient(to right, #ff592d,#ff2e40);  ">
+		<view style="height:100rpx;display:flex;align-items:center" slot="left">
+			<van-icon name="arrow-left" custom-class="icon " size="40rpx" />
+		</view>
+	</van-nav-bar>
+	<view class="contain">
+  <scroll-view scroll-y="true" bindscrolltolower="loadMore" style="width:100%;height:89.8vh">
+		<block wx:for="{{shopList}}" wx:key="index">
+			<view class="unionBox" data-id="{{item.id}}" bindtap="gotoDetails">
+				<view class="box_top">
+					<view class="top_image">
+          <image style="width:100%;height:100%" src="{{item.photo}}"></image>
+					</view>
+					<view class="top_text">
+						<text class="name">{{item.name}}</text>
+						<text class="address">{{item.address}}</text>
+						<text class="phone">{{item.phone}}</text>
+					</view>
+				</view>
+				<view class="box_bottom">
+					<block wx:for="{{item.photoList}}" wx:key="index">
+						<view class="bottom_image">
+							<image class="bottom_images" src="{{item}}"></image>
+						</view>
+					</block>
+				</view>
+			</view>
+		</block>
+    </scroll-view>
+	</view>
+</view>

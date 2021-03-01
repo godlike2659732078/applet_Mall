@@ -1,0 +1,66 @@
+<view>
+	<van-nav-bar id="reset"  title="注册" bind:click-left="onClickLeft" custom-style="height:{{navH}}rpx; background:linear-gradient(to right, #ff592d,#ff2e40);  ">
+		<view style="height:100rpx;display:flex;align-items:center" slot="left">
+			<van-icon name="arrow-left"  custom-class="icon "  size="40rpx" />
+		</view>
+	</van-nav-bar>
+	<view class="login_all">
+		<view class='bg_box'>
+			<image src='../../images/login/register_bg.png'></image>
+		</view>
+		<view class="login_title">
+			<text >注册</text>
+		</view>
+		<view class="login_booter">
+			<view class="box_">
+				<image class="phone" src="../../images/login/login_Tel.png"></image>
+				<input class="phoneNum" bindblur="phoneBlur" bindinput="getmobile" name="mobile" placeholder="手机号" placeholder-style="color:#949499; font-size:26rpx"></input>
+				<text class="hr"></text>
+			</view>
+			<view class="box_">
+				<image class="mailIcon" src="../../images/login/login_mail.png"></image>
+				<input class="mailNum" bindinput="getcode" name="code" placeholder="短信验证码" placeholder-style="color:#949499; font-size:26rpx"></input>
+				<van-button block class="getcode" size="mini" round disabled="{{disabled}}" bind:click="getCode" custom-style="font-size: 20rpx;text-align: center;width: 134rpx;height: 45rpx;border-radius: 22rpx;color: #949499;border: 2rpx solid #949499;">{{time}}</van-button>
+				<text class="hrs"></text>
+			</view>
+			<view class="box_">
+				<image class="powerdIcon" src="../../images/login/login_pwd.png"></image>
+				<input class="powerd" bindinput="getpwd" name="password" placeholder="请设置密码" placeholder-style="color:#949499; font-size:26rpx"></input>
+				<text class="hrss"></text>
+			</view>
+			<view class="box_">
+				<image class="invitationIcon" src="../../images/login/login_invitation.png"></image>
+				<input class="invitation" bindinput="getInvitation" name="invation" placeholder="邀请码(非必填)" placeholder-style="color:#949499; font-size:26rpx"></input>
+				<text class="hrsss"></text>
+			</view>
+			<view class="box_">
+
+				<van-checkbox class="agreeIcon" icon-size="30rpx" checked-color="#FF2B41" value="{{ checked }}" shape="square" bind:change="changeChecked">
+				</van-checkbox>
+				<text class="agree">我同意条款和条件</text>
+			</view>
+			<view class="goToIndex" bindtap="showPopup">
+				<image class="goIng" src="../../images/login/login_confirm.png">
+				</image>
+			</view>
+			<van-popup show="{{ show }}" bind:close="onClose" round custom-style="height:678rpx;width:556rpx">
+				<view class="popBox">
+					<image src="../../images/login/login_.png"></image>
+				</view>
+				<view class="re_success">
+					<text>注册成功</text>
+				</view>
+				<view class="textbox">
+					<text>您的账号已注册成功，快来了解更多吧</text>
+				</view>
+				<view class="btn">
+					<van-button class="btns" bindtap="goToLogin" custom-style="width:350rpx;height:68rpx" block round color="linear-gradient(to right, #FF5D2B, #FF2B41)">登录</van-button>
+				</view>
+			</van-popup>
+			<view class="login_register">
+				<text bindtap="goToLogin">已有账号？登录</text>
+			</view>
+		</view>
+	</view>
+
+</view>

@@ -1,0 +1,122 @@
+<view>
+	<van-nav-bar title="我的" fixed="{{true}}"
+		custom-style="height:{{navH}}rpx;background:linear-gradient(to right, #ff592d,#ff2e40);">
+		<view style="height:100rpx;display:flex;align-items:center" slot="left">
+			<van-icon name="chat-o" wx:if="{{pushNum>0}}" info="{{pushNum}}" color="#000" custom-style="margin-left:30rpx;"
+				size="50rpx" bindtap="gotoPushlist" />
+			<van-icon name="chat-o" wx:else color="#000" custom-style="margin-left:30rpx;" size="50rpx"
+				bindtap="gotoPushlist" />
+		</view>
+	</van-nav-bar>
+	<view class="pageContent" style="margin-top:{{navH}}rpx">
+		<view class="user_head_view acea-row row-between-wrapper" bindtap="goTosettings">
+			<view class="user_head_left_view acea-row row-middle">
+				<image wx:if="{{userContent.headImage}}" class="user_head_avatar" mode="aspectFill"
+					src="{{userContent.headImage}}" />
+				<image wx:else class="user_head_avatar" mode="aspectFill" src="../../images/user/avatar.png" />
+				<view class="user_head_user_info_view acea-row row-column-between">
+					<view class="acea-row row-middle">
+						<text class="user_head_nick_name">{{nickname}}</text>
+						<text wx:if="{{userContent.level==1}}" class="user_head_level_view">普通会员</text>
+						<image wx:elif="{{userContent.level==2}}" class="user_head_level_img" src="../../images/user/w_vip.png">
+						</image>
+						<image wx:else class="user_head_level_img" src="../../images/user/w_svip.png"></image>
+					</view>
+					<text class="user_head_id_view">ID:{{userPhone}}</text>
+				</view>
+			</view>
+			<view>
+				<van-icon name="arrow" size="40rpx" color="#aaa" />
+			</view>
+		</view>
+
+		<view class="head_menu_list_view acea-row row-between-wrapper">
+			<block wx:for="{{headMenuList}}" wx:key="index">
+				<navigator url="{{item.path}}">
+					<view class="head_menu_view acea-row row-column-between row-middle" data-index="index">
+						<image class="head_menu_image" src="{{item.image}}" />
+	
+						<text class="head_menu_title" >{{item.title}}</text>
+					</view>
+				</navigator>
+			</block>
+		</view>
+		<view class="user_open_vip_view_view" bindtap="gotoBuyvip">
+			<view class="user_open_vip_view acea-row row-between-wrapper">
+				<view class="acea-row row-middle">
+					<image src="/images/user/vip.png" class="open_vip_image" />
+					<text class="open_vip_left_text">商城会员</text>
+				</view>
+				<view class="acea-row row-middle">
+					<text class="open_vip_right_text">加入链上会员，享受更多权益</text>
+					<van-icon name="arrow" color="#7b5533" size="30rpx" />
+				</view>
+			</view>
+		</view>
+
+		<view class="user_order_view">
+			<view class="user_order_top_view acea-row row-between-wrapper">
+				<text class="user_per_view_title">我的订单</text>
+				<text bindtap="goToOrders">全部订单</text>
+			</view>
+			<view class="user_order_type_list_view acea-row row-between-wrapper">
+				<view class="user_order_type_view acea-row row-middle row-column-between" bindtap="goToOrderO">
+					<text class="user_order_type_num">{{statusNums.obligation}}</text>
+					<text class="user_order_type_status">待付款</text>
+				</view>
+				<view class="user_order_type_view acea-row row-middle row-column-between" bindtap="goToOrderT">
+					<text class="user_order_type_num">{{statusNums.waitForReceiving}}</text>
+					<text class="user_order_type_status">待发货</text>
+				</view>
+				<view class="user_order_type_view acea-row row-middle row-column-between" bindtap="goToOrderTh">
+					<text class="user_order_type_num">{{statusNums.shipped}}</text>
+					<text class="user_order_type_status">待收货</text>
+				</view>
+		
+			</view>
+		</view>
+
+		<view class="user_my_service_view">
+			<view class="user_my_service_top_view">
+				<text class="user_per_view_title">我的服务</text>
+			</view>
+			<view class="user_service_list_view">
+
+				<view class="user_per_service_view acea-row row-between-wrapper" wx:if="{{showJifen==1}}">
+					<view class="user_per_service_left_view">
+						<van-icon color="#aaa" size="38rpx" name="paid" />
+					</view>
+					<view class="user_per_service_right_view user_per_service_right_btm_border acea-row row-between-wrapper"
+						bindtap="gotomyPoints">
+						<text class="user_per_service_right_title">我的积分</text>
+						<van-icon name="arrow" color="#aaa" size="30rpx" />
+					</view>
+				</view>
+				<view class="user_per_service_view acea-row row-between-wrapper" wx:if="{{showJifen==1}}">
+					<view class="user_per_service_left_view">
+						<van-icon color="#aaa" size="38rpx" name="points" />
+					</view>
+					<view class="user_per_service_right_view user_per_service_right_btm_border acea-row row-between-wrapper"
+						bindtap="gotoPaid">
+						<text class="user_per_service_right_title">我的卡包</text>
+						<van-icon name="arrow" color="#aaa" size="30rpx" />
+					</view>
+				</view>
+
+		
+				<button plain="true" class="custom_btn" open-type="contact">
+					<view class="user_per_service_view acea-row row-between-wrapper">
+
+						<view class="user_per_service_left_view">
+							<van-icon color="#aaa" size="38rpx" name="service-o" />
+						</view>
+						<view class="user_per_service_right_view  acea-row row-between-wrapper">
+							<text class="user_per_service_right_title">联系客服</text>
+							<van-icon name="arrow" color="#aaa" size="30rpx" />
+						</view>
+					</view>
+				</button>
+			</view>
+		</view>
+	</view>
+</view>

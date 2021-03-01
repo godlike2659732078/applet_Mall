@@ -1,0 +1,44 @@
+<view>
+	<van-nav-bar title="发现" fixed="{{true}}" custom-style="height:{{navH}}rpx;background:#ffffff;" />
+	<view class="pageContent" style="margin-top:{{navH+10}}rpx">
+
+		<view wx:if="{{showJifen==1}}">
+			<image class="luckyDrawBox" bindtap="gotoLuckyDraw" src="https://res.chainmall.pro/adm/2020/12/04/a83116b8fa92b615a734112911e3487f2020-12-04-10-27-21.gif"></image>
+		</view>
+		<view class="news_list_view">
+			<view class="news_list_title_view acea-row row-between-wrapper">
+				<view class="news_list_title_left_view acea-row row-middle">
+					<image class="news_list_title_left_image" src="/images/read/news.png" />
+					<text class="news_list_title_left_title">链上资讯</text>
+				</view>
+				<text class="news_list_title_right_text" bindtap="gotoAll">更多</text>
+			</view>
+			<view class="news_lists_view">
+				<block wx:for="{{newsList}}" wx:key="index">
+					<view class="news_per_view acea-row row-between-wrapper" data-id="{{item.id}}" bindtap="gotonewsDetails">
+						<view class="news_per_left_image">
+							<image class="left_image" src="{{item.image}}"></image>
+						</view>
+						<view class="news_per_right_view acea-row row-column-between ">
+							<text class="news_per_title">{{item.title}}</text>
+							<view class="news_per_right_btm_view acea-row row-between-wrapper">
+								<text class="news_per_from">{{item.source}}</text>
+								<text class="news_per_time">{{item.time}}</text>
+							</view>
+						</view>
+					</view>
+				</block>
+			</view>
+		</view>
+		<van-popup show="{{ show }}" bind:click-overlay="onClose" round custom-style="height:auto;width:60%">
+			<view class="setName">
+				<view class="box_head">
+					<text class="title">积分权限到期提醒</text>
+					<text class="box_content">普通用户免费领取积分已到期</text>
+					<text class="vip">VIP</text>
+				</view>
+				<van-button class="subBtn" bindtap="gotoVip" color="#000" block round custom-style="width:250rpx;height:70rpx;margin-top:40rpx;margin-bottom:40rpx;color:#fdc661;font-size:30rpx">加入会员</van-button>
+			</view>
+		</van-popup>
+	</view>
+</view>

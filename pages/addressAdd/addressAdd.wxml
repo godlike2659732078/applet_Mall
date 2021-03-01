@@ -1,0 +1,46 @@
+<!--pages/address/address.wxml-->
+<view>
+	<van-nav-bar id="reset" title="新增收货地址" bind:click-left="onClickLeft" custom-style="height:{{navH}}rpx; background:linear-gradient(to right, #ff592d,#ff2e40);  ">
+		<view style="height:100rpx;display:flex;align-items:center" slot="left">
+			<van-icon name="arrow-left" custom-class="icon " size="40rpx" />
+		</view>
+	</van-nav-bar>
+	<view class="contain">
+		<view class="editBox">
+			<view class="people">
+				<text class="title">收货人</text>
+				<input class="userName" type="text" bindinput="getName"></input>
+				<van-icon name="friends-o" size="40rpx" color="#333333" />
+			</view>
+			<view class="people">
+				<text class="title">联系电话</text>
+				<input class="userName" placeholder="+86" type="text" bindinput="getMobile"></input>
+				<van-icon name="arrow" size="40rpx" color="#CCCCCC" />
+			</view>
+			<view class="place" bindtap="showPopup">
+				<text class="title">配送地址</text>
+				<view class="right">
+					<text class="chooseAddress">{{address}}</text>
+					<van-icon name="arrow" size="40rpx" color="#CCCCCC" />
+				</view>
+			</view>
+			<van-popup round show="{{ show }}" position="bottom" custom-style="height:396rpx;">
+				<van-area area-list="{{ areaList }}" item-height="40" bind:cancel="cancle" bind:confirm="confirm" />
+			</van-popup>
+			<view class="addressAll">
+				<text >详细地址：如街道、楼牌号等</text>
+				<textarea class="textarea" bindinput="getplace"></textarea>
+			</view>
+			<view class="setDefault">
+				<text class="title">设为默认地址</text>
+				<van-switch checked="{{ checked }}" size="35rpx" active-color="#FF2B41" bind:change="changeChecked" />
+			</view>
+
+		</view>
+		<view class="del" bindtap="getObj">
+			<van-button round block custom-style="width:60%;height:80rpx" color="linear-gradient(to right, #ff592d,#ff2e40);">
+				添加地址
+			</van-button>
+		</view>
+	</view>
+</view>

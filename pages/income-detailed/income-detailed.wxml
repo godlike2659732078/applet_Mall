@@ -1,0 +1,31 @@
+<view>
+	<van-nav-bar title="收支明细" id="reset" bind:click-left="onClickLeft" custom-style="height:{{navH}}rpx; background:linear-gradient(to right, #ff592d,#ff2e40);  ">
+		<van-icon name="arrow-left" slot="left" custom-class="icon " custom-style="height:{{navH}}rpx; line-height:{{navH+40}}rpx;" size="40rpx" />
+	</van-nav-bar>
+
+	<van-tabs swipeable class="tabs" bind:change="onChange">
+		<block wx:for="{{categoryList}}" wx:key="index">
+			<van-tab line-width="88rpx" title="{{item.title}}">
+				<view class="cotain">
+					<scroll-view scroll-y="true" style="height:83.7vh;width:100%;">
+						<block wx:for="{{detailList}}" wx:key="index">
+							<view class="boxs">
+								<view class="box">
+									<view class="title">
+										<text>{{item.operation}}</text>
+										<text>+{{item.allOperation}}</text>
+									</view>
+									<view class="date">
+										<text>{{item.createTime}}</text>
+										<text>余额:{{item.allBalance}}</text>
+									</view>
+								</view>
+							</view>
+						</block>
+					</scroll-view>
+				</view>
+			</van-tab>
+		</block>
+	</van-tabs>
+
+</view>

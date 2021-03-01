@@ -1,0 +1,26 @@
+<!--pages/share/share.wxml-->
+<view>
+	<van-nav-bar id="reset" title="邀请好友" bind:click-left="onClickLeft" custom-style="height:{{navH}}rpx; background:linear-gradient(to right, #ff592d,#ff2e40);  ">
+		<view style="height:100rpx;display:flex;align-items:center" slot="left">
+			<van-icon name="arrow-left" custom-class="icon " size="40rpx" />
+		</view>
+	</van-nav-bar>
+	<view class="contain">
+	
+		<image class="head_bg" src="../../images/user/Invitation.png">
+			<text class="btn_record" bindtap="gotoRecord">邀请记录</text>
+		</image>
+		<view class="share_box">
+			<text class="head_title">您的邀请码</text>
+			<text class="share_code">{{link.shareUrl}}</text>
+			<text class="content">邀请的好友可以在注册时直接填写邀请码</text>
+			<view class="image_box">
+				<image class="shareImage" src="{{link.shareImage}}"></image>
+			</view>
+
+			<van-button block round bindtap="copyCode" custom-style="width:90%;height:60rpx;margin-top:100rpx" color="linear-gradient(to right, #E67E4E, #EF5184)">
+				复制邀请码
+			</van-button>
+		</view>
+	</view>
+</view>

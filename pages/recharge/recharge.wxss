@@ -1,0 +1,145 @@
+/* pages/register/register.wxss */
+/* pages/login/login.wxss */
+
+@import '/app.wxss';
+
+page {
+  height: 100%;
+}
+
+.bg_box {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+page {
+  overflow: hidden;
+}
+
+.head_box {
+  width: 100%;
+  height: 102rpx;
+  padding: 0rpx 40rpx;
+}
+
+.charge_num {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1rpx solid #E6E6E6;
+}
+
+.charge_num text {
+  font-size: 60rpx;
+}
+
+.charge_placeholder,
+.charge_input {
+  text-align: right;
+}
+
+.charge_input {
+  width: 100%;
+}
+
+.charge_placeholder {
+  font-size: 32rpx;
+  color: #BFBFBF;
+}
+
+.charge_type {
+  width: 100%;
+  padding: 0rpx 40rpx;
+}
+
+.choose {
+  width: 100%;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid #E6E6E6;
+}
+
+.choose text {
+  color: #333333;
+  font-size: 28rpx;
+}
+
+.pay_type {
+  width: 100%;
+}
+
+.wechat_pay {
+  width: 100%;
+  height: 116rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.image_box {
+  padding: 4rpx 6rpx 0rpx;
+}
+
+.image_box image {
+  width: 62rpx;
+  height: 48rpx;
+}
+.text_box {
+  width: 430rpx;
+  height: 80rpx;
+  display: flex;
+flex-wrap: wrap;
+
+}
+.text_box text:first-child{
+  color: #333333;
+  font-size: 28rpx;
+}
+.text_box text:last-child{
+  color: #989898;
+  font-size: 20rpx;
+}
+.charge_btn{
+  width: 600rpx;
+  height: 98rpx;
+}
+.charge_btns {
+  width: 100%;
+  height: 98rpx;
+  display: flex;
+  justify-content: center;
+  margin-top: 200rpx;
+}
+
+.charge_btn {
+  color: #fff;
+  font-size: 32rpx;
+  text-align: center;
+  line-height: 32rpx;
+  display: block;
+  width: 600rpx;
+  height: 98rpx;
+  border-radius: 48rpx;
+
+}
+.agreement_text{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 36rpx;
+}
+.agreement_text .text{
+  color: #333333;
+  font-size: 24rpx;
+}
+.agreement_text .agreement{
+  font-size: 24rpx;
+  color: #FF2B41;
+}

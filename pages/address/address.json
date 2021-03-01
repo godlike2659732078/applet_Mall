@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "van-checkbox": "@vant/weapp/checkbox/index",
+    "van-checkbox-group": "@vant/weapp/checkbox-group/index",
+      "van-nav-bar": "@vant/weapp/nav-bar/index",
+      "van-icon": "@vant/weapp/icon/index",
+      "van-button": "@vant/weapp/button/index"
+  }
+}

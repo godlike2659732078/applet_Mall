@@ -1,0 +1,37 @@
+<view>
+	<van-nav-bar id="reset" title="链上直播" bind:click-left="onClickLeft" custom-style="height:{{navH}}rpx; background:linear-gradient(to right, #ff592d,#ff2e40);  ">
+		<view style="height:100rpx;display:flex;align-items:center" slot="left">
+			<van-icon name="arrow-left" custom-class="icon " size="40rpx" />
+		</view>
+	</van-nav-bar>
+	<view class="contain">
+		<view class="liveBroadcast" wx:if='{{liveList.length || liveInfo.roomid}}'>
+			<!-- end:结束；time：直播时间 -->
+			<scroll-view scroll-y="true" bindscrolltolower="loadMore" style="height:87.7vh;width:100%;">
+				<view class="list" wx:if="{{liveList.length}}">
+					<navigator hover-class="none" wx:for='{{liveList}}' wx:key='index' url="plugin-private://wx2b03c6e691cd7370/pages/live-player-plugin?room_id={{item.roomid}}" class="item">
+						<view class="pictrue">
+							<image src="{{item.share_img}}"></image>
+							<view class="label" wx:if='{{item.live_status == 101}}'><text class="iconfont icon-zhibo"></text>直播中</view>
+							<view class="label" wx:if='{{item.live_status == 103}}'><text class="iconfont icon-zhibojieshux"></text>已结束</view>
+							<view class="label" wx:if='{{item.live_status == 102}}'><text class="iconfont icon-shijian"></text>直播时间 {{item.actionTime}}</view>
+						</view>
+						<view class="text line1">
+							<text>{{item.name}}</text>
+							<text>主播：{{item.anchor_name}}</text>
+						</view>
+					</navigator>
+				</view>
+
+			</scroll-view>
+		</view>
+		<view class="lists" wx:else>
+			<view class="items">
+				<view class="pictrues">
+					<image src="http://mmbiz.qpic.cn/mmbiz_jpg/juILOHhIkAJTjgru0ibg2mjicPibXAFUx0Fh8oSXctEb6UMtIoJx2O0bsmAE4Uf4SZ7mzw3ecR4Yciahn0Z6MMztfw/0"></image>
+					<view class="labels"><text class="iconfont icon-zhibo"></text>暂无直播</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>

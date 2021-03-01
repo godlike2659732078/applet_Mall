@@ -1,0 +1,136 @@
+/* pages/address/address.wxss */
+/* pages/buySucess/buySucess.wxss */
+/* pages/success/success.wxss */
+@import '/app.wxss';
+
+#reset {
+  display: block;
+  width: 100%;
+  position: fixed;
+  top: 0rpx;
+}
+
+page {
+  height: 100%;
+}
+
+.contain {
+  width: 100%;
+  height: 100%;
+ 
+  position: fixed;
+  top: 10%;
+  padding: 20rpx 38rpx 0rpx;
+}
+
+.set_ {
+  width: 100%;
+  height:100rpx;
+  border-bottom: solid 1rpx #E5E5E5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+ 
+}
+
+.set_ text {
+  color: #333333;
+  font-size: 28rpx;
+}
+
+.set_ input {
+  width: 430rpx;
+  line-height: 50rpx;
+  margin-top: 4rpx;
+}
+
+.get_ {
+  width: 100%;
+  height:100rpx;
+  border-bottom: solid 1rpx #E5E5E5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.get_ text {
+  color: #333333;
+  font-size: 28rpx;
+}
+
+.get_ input {
+  width: 430rpx;
+  line-height: 50rpx;
+  margin-top: 4rpx;
+}
+
+.placeholderStyle {
+  color: #999999;
+  font-size: 24rpx;
+}
+.set_sex{
+  width: 100%;
+  height:100rpx;
+  border-bottom: solid 1rpx #E5E5E5;
+  display: flex;
+  align-items: center;
+ 
+}
+radio-group{
+  margin-left: 178rpx;
+}
+radio-group .wx-radio-input.wx-radio-input-checked {
+  border: 1rpx solid #FF2B41 !important;
+  background: #FF2B41 !important;
+  
+}
+radio {
+  transform:scale(0.7);
+}
+radio-group .wx-radio-input.wx-radio-input-checked::before {
+  border-radius: 50%;
+  text-align: center;
+  color: #ffffff;
+  font-size: 30rpx;
+  transform: translate(-50%, -50%) scale(1);
+  -webkit-transform: translate(-50%, -50%) scale(1);
+}
+
+.box_ {
+  display: flex;
+  width: auto;
+}
+.positive{
+  width: 306rpx;
+  height: 194rpx;
+}
+.uploadBox{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20rpx;
+}
+.determine_btn {
+  width: 100%;
+  height: 98rpx;
+  display: flex;
+  justify-content: center;
+  margin-top: 300rpx;
+}
+.upload text{
+display: block;
+text-align: center;
+font-size: 24rpx;
+color: #333333;
+margin-top: 16rpx;
+}
+.determine {
+  color: #fff;
+  font-size: 32rpx;
+  text-align: center;
+  line-height: 32rpx;
+  display: block;
+  width: 600rpx;
+  height: 98rpx;
+  border-radius: 48rpx;
+
+}

@@ -1,0 +1,30 @@
+<view>
+	<van-nav-bar id="reset" title="链上优选" bind:click-left="onClickLeft" custom-style="height:{{navH}}rpx; background:linear-gradient(to right, #ff592d,#ff2e40);  ">
+		<view style="height:100rpx;display:flex;align-items:center" slot="left">
+			<van-icon name="arrow-left"  custom-class="icon "  size="40rpx" />
+		</view>
+	</van-nav-bar>
+	<van-tabs swipeable class="tabs" bind:change="getGoods">
+		<block wx:for="{{categoryList}}" wx:key="index">
+			<van-tab title="{{item.title}}" data-id="{{item.id}}">
+				<view class="contain">
+					<scroll-view scroll-y="true" bindscrolltolower="loadMore" style="height:82vh;width:100%;">
+						<view class="goodList">
+							<view class="boxs" wx:for="{{pageItems}}" wx:key="index" >
+								<view class="box_image" data-items="{{item}}" data-id="{{item.id}}"  bindtap="goDetail">
+									<image class="image_item" src="{{item.picture}}"></image>
+								</view>
+								<view class="box_items">
+									<text class="item_title">
+									{{item.goodsName}}
+									</text>
+									<text class="item_price">￥{{item.price}}</text>
+								</view>
+							</view>
+						</view>
+					</scroll-view>
+				</view>
+			</van-tab>
+		</block>
+	</van-tabs>
+</view>

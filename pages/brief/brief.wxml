@@ -1,0 +1,16 @@
+<view>
+	<van-nav-bar id="reset" title="积分简介" bind:click-left="onClickLeft" custom-style="height:{{navH}}rpx; background:linear-gradient(to right, #ff592d,#ff2e40);  ">
+		<view style="height:100rpx;display:flex;align-items:center" slot="left">
+			<van-icon name="arrow-left" custom-class="icon " size="40rpx" />
+		</view>
+	</van-nav-bar>
+	<view class="contain">
+		<text class="about_shop">CMT（China Mall Token）  </text>
+<text class="about_shop">CMT是商城通证币，可以线上和线下店铺通用，不分区域，不分国界，全球通用。  </text>
+<text class="about_shop">CMT的获得：是通过用户劳动所得来的（每日签到、阅读文章、分享好友实名注册成功、邀请好友称为SVIP）所有CMT都是再商城免费获得的。  </text>
+<text class="about_shop">BT（Barter Treid）  </text>
+<text class="about_shop">BT是在商城可以购买商品的“商城积分币”也称易货交易币。  </text>
+<text class="about_shop">BT主要的由来：是用自身的产品通过资源转换而得来的。  </text>
+
+	</view>
+</view>

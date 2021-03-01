@@ -1,0 +1,135 @@
+<import src="../../wxParse/wxParse.wxml" />
+<view>
+	<van-nav-bar id="reset" title="商品详情" bind:click-left="onClickLeft" custom-style="height:{{navH}}rpx; background:linear-gradient(to right, #ff592d,#ff2e40); ">
+		<van-icon name="arrow-left" slot="left" custom-class="icon " custom-style="height:{{navH}}rpx; line-height:{{navH+40}}rpx;" size="40rpx" />
+	</van-nav-bar>
+	<view class="contain">
+		<view class="banner_list_view">
+			<view class='index-bg' wx:if="{{detailsBox.bannerList.length}}">
+				<swiper indicator-dots="true" autoplay="{{autoplay}}" circular="{{circular}}" interval="{{interval}}" duration="{{duration}}" indicator-color="rgba(255,255,255,0.6)" indicator-active-color="#ff6400">
+					<block wx:for="{{detailsBox.bannerList}}" wx:key='index'>
+						<swiper-item>
+							<image src="{{item}}" class="slide-image" />
+						</swiper-item>
+					</block>
+				</swiper>
+			</view>
+		</view>
+		<van-tabs swipeable active="{{ active }}" class="tabs" bind:change="changeDetail">
+			<block wx:for="{{categoryList}}" wx:key="index">
+				<van-tab title="{{item.title}}" data-id="{{item.id}}">
+					<view class="detailAll" wx:if="{{active==0}}">
+						<view class="shopText">
+							<van-icon name="shop-o" size="30rpx" />
+							<text>{{detailsBox.name}}</text>
+							<van-icon name="phone" size="50rpx" custom-style="margin-left:150rpx" data-phone="{{detailsBox.phone}}" bindtap="callPhone" />
+						</view>
+						<view class="shopText">
+							<van-icon name="location-o" size="30rpx" />
+							<text>{{detailsBox.address}}</text>
+						</view>
+						<view class="shopText">
+							<van-icon name="clock-o" size="30rpx" />
+							<text>营业时间{{detailsBox.openTime}}</text>
+						</view>
+						<view class="content">
+							<text>{{detailsBox.introduct}}</text>
+						</view>
+						<view class="imgBox">
+							<template is="wxParse" data="{{wxParseData:particulars.nodes}}" />
+						</view>
+					</view>
+					<view wx:else>
+						<form bindsubmit="formSubmit">
+							<view class="head_box">
+								<view class="charge_num">
+									<text>支付金额</text>
+									<input class="charge_input" name="nums" bindinput="getNums" placeholder-class="charge_placeholder" type="number" placeholder="请输入支付金额"></input>
+								</view>
+							</view>
+							<view class="charge_type">
+								<view class="choose">
+									<text>选择支付方式</text>
+								</view>
+								<view class="pay_type">
+									<van-radio-group name="radio" value="{{ radio }}">
+										<view class="wechat_pay">
+											<view class="image_box">
+												<image src="../../images/user/weChartw.png"></image>
+											</view>
+											<view class="text_box">
+												<text>微信客户端支付</text>
+												<text>推荐安装微信5.0及以上版本使用</text>
+											</view>
+											<van-radio icon-size="40rpx" name="1" checked-color="#FF2250"></van-radio>
+										</view>
+									</van-radio-group>
+								</view>
+							</view>
+							<!-- <view class="payType">
+								<text class="title">抵扣方式：</text>
+								<van-radio-group class="groups" value="{{ radios }}" bind:change="changeRadios">
+									<block wx:for="{{coinType}}" wx:key="index">
+										<van-radio name="{{index+1}}" icon-size="28rpx" checked-color="#FF2150">{{item.coinName}}</van-radio>
+									</block>
+								</van-radio-group>
+							</view> -->
+							<view class="payType" bindtap="showDis">
+								<text class="title">优惠券</text>
+								<view class="money">
+									<text wx:if="{{offline_dis.length==0||offline_dis==null}}">暂无可用优惠券</text>
+									<text wx:elif="{{lowerMoney!=''}}">优惠金额￥{{lowerMoney}}</text>
+									<text wx:elif="{{offline_dis.length>0&&offline_dis!=null}}">可用优惠券{{offline_dis.length}}张</text>
+									<van-icon name="arrow" color="#aaa" size="30rpx" />
+								</view>
+							</view>
+							<view class="charge_btns">
+								<van-button form-type="submit" class="charge_btn" block round data-offlineid="{{detailsBox.offlineId}}" color="linear-gradient(to right, #FF5D2B, #FF2B41)">
+									立即支付
+								</van-button>
+							</view>
+						</form>
+						<van-popup show="{{ show }}" closeable position="bottom" custom-style="height: 70%" bind:close="onClose">
+							<view class="quan_title">
+								<text >优惠券</text>
+							</view>
+
+							<view wx:if="{{offline_dis.length>0}}" class="offline_dis">
+								<scroll-view scroll-y="true" bindscrolltolower="loadMore" style="height:50vh;width:100%;">
+									<block wx:for="{{offline_dis}}" wx:key="index">
+										<van-radio-group name="radio_quan" value="{{ radio_quan }}" data-loweramount="{{item.lowerAmount}}" data-couponid="{{item.id}}"  bind:change="changeRadio">
+											<view class="boxs" data-id="{{item.offlineTableId}}">
+												<view class="left_box">
+													<text>￥{{item.lowerAmount}}</text>
+													<text>满{{item.fullAmount}}使用</text>
+												</view>
+												<view class="offline_dis_name">
+													<view class="offline_namebox">
+														<text class="offline_name">{{item.name}}</text>
+													</view>
+													<view class="date">
+														<text class="dateTime">{{item.expirationTime}}过期</text>
+														<van-radio icon-size="40rpx" name="{{index+1}}" checked-color="#FF2250"></van-radio>
+													</view>
+												</view>
+											</view>
+										</van-radio-group>
+									</block>
+								</scroll-view>
+								<view class="charges_btns">
+									<van-button class="charge_btn" bindtap="subQuan" block round data-offlineid="{{detailsBox.offlineId}}" color="linear-gradient(to right, #FF5D2B, #FF2B41)">
+										确定
+									</van-button>
+								</view>
+							</view>
+							<view class="quans_title" wx:if="{{offline_dis.length==0}}">
+								<text>暂无优惠券</text>
+							</view>
+						</van-popup>
+					</view>
+				</van-tab>
+			</block>
+		</van-tabs>
+
+	</view>
+</view>

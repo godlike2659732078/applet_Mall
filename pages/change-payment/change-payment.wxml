@@ -1,0 +1,42 @@
+<!--pages/address/address.wxml-->
+<view>
+	<van-nav-bar id="reset" title="修改密码" bind:click-left="onClickLeft" custom-style="height:{{navH}}rpx; background:linear-gradient(to right, #ff592d,#ff2e40);  ">
+		<van-icon name="arrow-left" slot="left" custom-class="icon " custom-style="height:{{navH}}rpx; line-height:{{navH+40}}rpx;" size="40rpx" />
+	</van-nav-bar>
+	<view class="contain">
+		<view class="head_box">
+			<text>请为您的账号</text>
+			<text class="phone">{{phone}}</text>
+			<text>修改密码</text>
+		</view>
+		<form bindsubmit="formSubmit">
+			<view class="oldpwd">
+				<text>旧密码</text>
+			</view>
+			<view class="oldpwd_iptbox">
+				<text>请输入旧密码</text>
+				<input type="text" name="oldPwd" password="{{passwordType1}}"></input>
+				<van-icon name="{{defaultType1?'closed-eye':'eye-o'}}" bindtap="changePwd1" />
+			</view>
+			<view class="newpwd">
+				<text>新密码</text>
+			</view>
+			<view class="oldpwd_iptbox">
+				<text>请输入新密码</text>
+				<input type="text" name="newPwd1" password="{{passwordType2}}"></input>
+				<van-icon color="#FF2B41" name="{{defaultType2?'closed-eye':'eye-o'}}" bindtap="changePwd2" />
+			</view>
+			<view class="oldpwd_iptbox">
+				<text>请确认新密码</text>
+				<input type="text" name="newPwd2" password="{{passwordType3}}"></input>
+				<van-icon color="#FF2B41" name="{{defaultType3?'closed-eye':'eye-o'}}" bindtap="changePwd3" />
+			</view>
+
+			<view class="determine_btn">
+				<van-button form-type="submit" class="determine" block round color="linear-gradient(to right, #FF5D2B, #FF2B41)">
+					确定
+				</van-button>
+			</view>
+		</form>
+	</view>
+</view>

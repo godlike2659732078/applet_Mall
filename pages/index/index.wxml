@@ -1,0 +1,163 @@
+<view class="pageContent">
+	<scroll-view>
+		<view class="pageHeadBgView">
+			<view class='navbar' style='height:{{navH}}rpx'>
+				<view class='navbarH' style='height:{{navH}}rpx;'>
+					<view class='navbarCon acea-row row-center-wrapper'>
+						<view class='search acea-row row-middle' bindtap='setGoodsSearch'>
+							<image class="search_image" src="/images/home/search.png"></image>
+							<text class="search_text">搜索商品</text>
+						</view>
+						<view class='leftview acea-row row-center-wrapper'>
+							<van-icon name="scan" bindtap="gotoOutper" size="50rpx" color="#fff" />
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="banner_view" style='top:{{navH+20}}rpx'>
+			<view class="banner_list_view">
+				<view class='index-bg' wx:if="{{imgUrls.length}}">
+					<swiper indicator-dots="true" autoplay="{{autoplay}}" circular="{{circular}}" interval="{{interval}}"
+						duration="{{duration}}" indicator-color="rgba(255,255,255,0.6)" indicator-active-color="#ff6400">
+						<block wx:for="{{imgUrls}}" wx:key='index'>
+							<swiper-item>
+								<view wx:if="{{bindType==1}}" class='slide-navigator acea-row row-between-wrapper' hover-class='none'
+									data-id="{{item.uuid}}" data-type="{{item.type}}" data-url="{{item.url}}" bindtap="gotoBannerDetail">
+									<image src="{{item.image}}" class="slide-image" />
+								</view>
+								<view wx:else class='slide-navigator acea-row row-between-wrapper' hover-class='none'
+									data-id="{{item.uuid}}" data-type="{{item.type}}" data-url="{{item.url}}">
+									<image src="{{item.image}}" class="slide-image" />
+								</view>
+							</swiper-item>
+						</block>
+					</swiper>
+				</view>
+			</view>
+		</view>
+		<view class="menuListView acea-row row-between-wrapper" style="margin-top:{{navH-67}}rpx">
+			<block wx:for="{{menuList}}" wx:key="index">
+				<view class="menu_view acea-row row-column" bindtap="goToPages" data-index="{{index}}">
+					<image class="menu_image" src="{{item.image}}" />
+					<text class="menu_text">{{item.title}}</text>
+				</view>
+			</block>
+		</view>
+		<view class="btm_page_content">
+			<view class="intBox" wx:if="{{showJifen==1}}">
+				<view class="left" bindtap="gotoDis">
+					<text class="title_item">特价商品/优惠券</text>
+					<text class="title_items">特价秒杀</text>
+					<text class="tj_btn">特价/优惠</text>
+					<van-icon name="play-circle-o" size="30rpx" color="#ff2e40" />
+					<image class="disImage" src="{{image_dis}}"></image>
+				</view>
+				<view class="right">
+					<view class="right_top" bindtap="gotoIntegral">
+						<view class="top_left">
+							<text class="title_item_right">积分专区</text>
+							<text class="title_items_right">积分兑换精品</text>
+							<van-icon name="play-circle-o" size="30rpx" color="#ff2e40" />
+						</view>
+						<view class="right_img">
+							<image class="right_imgs" src="../../images/home/962b61ddbee979506282650e7dae9d0.png"></image>
+						</view>
+					</view>
+					<view class="right_bottom" bindtap="gotoUnion">
+						<view class="top_left">
+							<text class="title_item_right">联盟商家</text>
+							<text class="title_items_right">支持CMT、BT到店消费</text>
+							<van-icon name="play-circle-o" size="30rpx" color="#ff2e40" />
+						</view>
+						<view class="right_img">
+							<image class="right_imgs" src="../../images/home/fa050ac3794d9b4a884972fa496f1fa.png"></image>
+						</view>
+					</view>
+
+				</view>
+			</view>
+			<view class="liveBroadcast">
+				<view class="title_live">
+					<text class="title">热门直播</text>
+					<text class="all" bindtap="gotoLivebox">更多</text>
+				</view>
+				<!-- end:结束；time：直播时间 -->
+
+				<view class="list" wx:if="{{liveList.length!=0}}">
+					<navigator hover-class="none" wx:for='{{liveList}}' wx:key='index'
+						url="plugin-private://wx2b03c6e691cd7370/pages/live-player-plugin?room_id={{item.roomid}}" class="item">
+						<view class="pictrue">
+							<image src="{{item.share_img}}"></image>
+							<view class="label" wx:if='{{item.live_status == 101}}'><text class="iconfont icon-zhibo"></text>直播中
+							</view>
+							<view class="label" wx:if='{{item.live_status == 103}}'><text
+									class="iconfont icon-zhibojieshux"></text>已结束</view>
+							<view class="label" wx:if='{{item.live_status == 102}}'><text class="iconfont icon-shijian"></text>直播时间
+								{{item.actionTime}}</view>
+							<view class="label" wx:if='{{item.live_status == 107}}'><text
+									class="iconfont icon-zhibojieshux"></text>已过期</view>
+						</view>
+						<view class="text line1">
+							<text>{{item.name}}</text>
+							<text>主播：{{item.anchor_name}}</text>
+						</view>
+					</navigator>
+				</view>
+
+				<view class="lists" wx:else>
+					<view class="items">
+						<view class="pictrues">
+							<image
+								src="http://mmbiz.qpic.cn/mmbiz_jpg/juILOHhIkAJTjgru0ibg2mjicPibXAFUx0Fh8oSXctEb6UMtIoJx2O0bsmAE4Uf4SZ7mzw3ecR4Yciahn0Z6MMztfw/0">
+							</image>
+							<view class="labels"><text class="iconfont icon-zhibo"></text>暂无直播</view>
+						</view>
+					</view>
+				</view>
+			</view>
+
+			<view class="recommend_view">
+				<view class="recommend_top_view acea-row row-middle">
+					<image class="recommend_top_left_image" src="/images/home/recommend_top_left_image.png" />
+					<text class="recommend_top_left_text">精品推荐</text>
+				</view>
+				<view class="rec_goods_list_view acea-row row-between-wrapper">
+					<block wx:for="{{recommendGoodsList}}" wx:key="index">
+						<view class="rec_goods_view acea-row row-column" bindtap="goDetail" data-id="{{item.goodsId}}">
+							<view class="rec_goods_img">
+								<image class="goods_image" src="{{item.goodsImg}}"></image>
+							</view>
+							<text class="rec_goods_name">{{item.goodsName}}</text>
+							<view class="acea-row row-between-wrapper">
+								<text class="rec_goods_price">¥ {{item.goodsPrice}}</text>
+								<!-- <text class="rec_goods_sell">已售{{item.amount}}件</text> -->
+							</view>
+						</view>
+					</block>
+				</view>
+			</view>
+			<view class="integral_view" wx:if="{{showJifen==1}}">
+				<view class="recommend_top_view acea-row row-middle">
+					<van-icon name="hot" size="50rpx" color="#FF992B" />
+					<text class="recommend_top_left_text">积分专区</text>
+				</view>
+				<view class="goodList">
+					<block wx:for="{{intList}}" wx:key="index">
+						<view class="boxs" data-items="{{item}}" data-id="{{item.id}}" bindtap="goDetails">
+							<view class="box_image">
+								<image class="image_item" src="{{item.picture}}"></image>
+							</view>
+							<view class="box_items">
+								<text class="item_title">
+									{{item.name}}
+								</text>
+								<text class="item_price">￥{{item.integralPrice}}</text>
+							</view>
+						</view>
+					</block>
+				</view>
+			</view>
+		</view>
+	</scroll-view>
+</view>

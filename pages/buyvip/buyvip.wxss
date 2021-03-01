@@ -1,0 +1,299 @@
+/* pages/register/register.wxss */
+/* pages/login/login.wxss */
+
+@import '/app.wxss';
+
+page {
+  height: 100%;
+}
+
+.bg_box {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.contain {
+  height: 100%;
+}
+
+.head_box {
+  width: 100%;
+  height: 140rpx;
+  padding: 0rpx 40rpx;
+  display: flex;
+  align-items: center;
+}
+
+.image_user {
+  display: block;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+}
+
+.namebox {
+  width: 80%;
+  height: 80rpx;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-left: 20rpx;
+}
+
+.name {
+  width: 100%;
+  line-height: 30rpx;
+  font-size: 24rpx;
+}
+
+.lv {
+  font-size: 22rpx;
+  color: #FF2B41;
+}
+
+.vipBox {
+  width: 100%;
+  height: 20vh;
+  padding: 10rpx 0rpx;
+  display: flex;
+  justify-content: space-around;
+}
+
+.vipbtn {
+  width: 27.4%;
+  height: 18vh;
+  border: 1px solid #bd994c;
+  border-radius: 10rpx;
+  background-color: #fff4e2;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.vipbtn text {
+  display: block;
+  text-align: center;
+
+}
+
+.vipType {
+  width: 100%;
+  font-size: 26rpx;
+  line-height: 64rpx;
+}
+
+.price {
+  width: 100%;
+  font-size: 36rpx;
+  color: #bd994c;
+  line-height: 34rpx;
+}
+
+.oldPrice {
+  width: 100%;
+  font-size: 22rpx;
+  color: #989898;
+  line-height: 44rpx;
+}
+
+.money_btn {
+  background-color: #bd994c;
+  border-radius: 20rpx;
+  font-size: 24rpx;
+  display: block;
+  width: 160rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  color: #fff;
+}
+
+/* 禁用样式 */
+.vipbtn_ready {
+  width: 27.4%;
+  height: 18vh;
+  border: 1px solid rgb(230, 230, 230);
+  border-radius: 10rpx;
+  background-color: #ffffff;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+}
+.vipbtn_ready text {
+  display: block;
+  text-align: center;
+
+}
+.vipbtn_disabled {
+  width: 27.4%;
+  height: 18vh;
+  border: 1px solid rgb(230, 230, 230);
+  border-radius: 10rpx;
+  background-color: #ffffff;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.vipbtn_disabled text {
+  display: block;
+  text-align: center;
+
+}
+
+.vipType_disabled {
+  width: 100%;
+  font-size: 26rpx;
+  line-height: 64rpx;
+  color: rgb(226, 226, 226);
+}
+
+.price_disabled {
+  width: 100%;
+  font-size: 36rpx;
+  color: rgb(226, 226, 226);
+  line-height: 34rpx;
+}
+
+.oldPrice_disabled {
+  width: 100%;
+  font-size: 22rpx;
+  color: #989898;
+  line-height: 44rpx;
+}
+
+.money_btn_disabled {
+  background-color: rgb(222, 222, 222);
+  border-radius: 20rpx;
+  font-size: 24rpx;
+  display: block;
+  width: 160rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  color: rgb(243, 243, 243);
+}
+
+.charge_type {
+  width: 100%;
+  padding: 0rpx 40rpx;
+}
+
+.choose {
+  width: 100%;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid #E6E6E6;
+}
+
+.choose text {
+  color: #333333;
+  font-size: 28rpx;
+}
+
+.pay_type {
+  width: 100%;
+}
+
+.wechat_pay {
+  width: 100%;
+  height: 116rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.image_box {
+  padding: 4rpx 6rpx 0rpx;
+}
+
+.image_box image {
+  width: 62rpx;
+  height: 48rpx;
+}
+
+.text_box {
+  width: 430rpx;
+  height: 80rpx;
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.text_box text:first-child {
+  color: #333333;
+  font-size: 28rpx;
+}
+
+.text_box text:last-child {
+  color: #989898;
+  font-size: 20rpx;
+}
+
+.instructions {
+  width: 100%;
+  height: 12vh;
+  padding: 0rpx 30rpx;
+  margin-top: 40rpx;
+}
+
+.instructions text {
+  display: block;
+  width: 100%;
+  font-size: 22rpx;
+  color: #333333;
+}
+
+.aggrement {
+  width: 100%;
+  height: 10vh;
+  padding: 30rpx 30rpx;
+  display: flex;
+  align-items: center;
+}
+
+.agreeIcon {
+  display: inline-block;
+}
+
+.agree {
+  display: block;
+  width: 500rpx;
+  height: 30rpx;
+
+  color: #FF2B41;
+  font-family: SourceHanSansSC-Regular;
+  font-weight: Regular;
+  font-size: 26rpx;
+}
+
+.charge_btn {
+  width: 600rpx;
+  height: 98rpx;
+}
+
+.charge_btns {
+  width: 100%;
+  height: 98rpx;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  bottom: 20rpx;
+}
+
+.charge_btn {
+  color: #fff;
+  font-size: 32rpx;
+  text-align: center;
+  line-height: 32rpx;
+  display: block;
+  width: 600rpx;
+  height: 98rpx;
+  border-radius: 48rpx;
+
+}

@@ -1,0 +1,33 @@
+<view>
+	<van-nav-bar id="reset" title="链商学院" bind:click-left="onClickLeft" custom-style="height:{{navH}}rpx; background:linear-gradient(to right, #ff592d,#ff2e40);  ">
+		<view style="height:100rpx;display:flex;align-items:center" slot="left">
+			<van-icon name="arrow-left" custom-class="icon " size="40rpx" />
+		</view>
+	</van-nav-bar>
+	<van-tabs swipeable bind:change="changeClloge">
+		<block wx:for="{{categoryList}}" wx:key="index">
+			<van-tab title="{{item.name}}" color="#000">
+				<!-- 分类列表区域 -->
+				<view class="contain">
+					<view class="scroll">
+						<block wx:for="{{collegeList}}" wx:key="index">
+							<view class="college_box" bindtap="gotoDetail" data-id="{{item.id}}">
+								<view class="text_box">
+									<text class="title">{{item.title}}</text>
+									<view class="time_author">
+										<text>{{item.time}}</text>
+										<text>{{item.author}}</text>
+									</view>
+								</view>
+								<view class="image">
+									<image class="image_" src="{{item.image}}"></image>
+								</view>
+							</view>
+						</block>
+					</view>
+				</view>
+
+			</van-tab>
+		</block>
+	</van-tabs>
+</view>

@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+      "van-tab": "@vant/weapp/tab/index",
+      "van-tabs": "@vant/weapp/tabs/index",
+      "van-nav-bar": "@vant/weapp/nav-bar/index",
+      "van-icon": "@vant/weapp/icon/index",
+      "van-button": "@vant/weapp/button/index",
+      "van-picker": "@vant/weapp/picker/index",
+      "van-popup": "@vant/weapp/popup/index"
+  }
+}

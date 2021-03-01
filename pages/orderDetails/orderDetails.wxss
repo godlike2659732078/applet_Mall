@@ -1,0 +1,298 @@
+/* pages/orderDetails/orderDetails.wxss */
+/* pages/subOrder/subOrder.wxss */
+@import '/app.wxss';
+
+#reset {
+  display: block;
+  width: 100%;
+  position: fixed;
+  top: 0rpx;
+}
+
+page {
+  height: 100%;
+  background-color: #fff;
+}
+
+.contain {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 9%;
+}
+
+.head {
+  width: 100%;
+  height: 200rpx;
+  background: linear-gradient(to right, #FF5D2B, #FF2B41);
+  position: relative;
+}
+
+.head text:first-child {
+  color: #fff;
+  font-size: 32rpx;
+  position: absolute;
+  left: 30rpx;
+  bottom: 50px;
+}
+
+.head .clock{
+  color: #fff;
+  font-size: 30rpx;
+  position: absolute;
+  left: 30rpx;
+  top: 62px;
+
+}
+
+.useAddress {
+  height: 194rpx;
+  padding: 34rpx 24rpx 0rpx;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.receive {
+  display: block;
+  width: 300rpx;
+  color: #404040;
+  font-size: 30rpx;
+  line-height: 10rpx;
+}
+
+.phone {
+
+  left: 300rpx;
+  color: #999999;
+  font-size: 28rpx;
+}
+
+.address_head {
+  display: flex;
+  align-items: center;
+}
+
+.address {
+  display: block;
+  width: 646rpx;
+  height: auto;
+  color: #404040;
+  font-size: 24rpx;
+  margin-top: 10rpx;
+}
+
+.goToAddress {
+  display: block;
+  position: absolute;
+  left: 700rpx;
+  top: 74rpx;
+}
+
+.border {
+  display: block;
+  width: 710rpx;
+  height: 10rpx;
+  position: absolute;
+  bottom: 0rpx;
+
+}
+
+.sure_booter {
+  display: flex;
+  height: auto;
+}
+
+.choose_attr_view {
+  padding: 30rpx 0;
+  border-bottom: solid 1rpx #e6e6e6;
+}
+
+.timeBox {
+  height: 92rpx;
+  padding: 32rpx 28rpx;
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  display: block;
+  font-size: 26rpx;
+  color: #3A3A3A;
+
+}
+
+.time {
+  display: block;
+  width: auto;
+  font-size: 24rpx;
+  color: #7A7979;
+
+}
+
+.timeIcon {
+  position: absolute;
+  left: 700rpx;
+}
+
+.typeBox {
+  height: 92rpx;
+  padding: 32rpx 28rpx;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.groups {
+  position: absolute;
+  top: 30rpx;
+  left: 404rpx;
+  width: 300rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+van-radio {
+  color: #7A7979;
+  font-size: 24rpx;
+
+}
+
+.goodItem {
+
+  position: relative;
+}
+
+.orderImage {
+  width: 180rpx;
+  height: 180rpx;
+}
+
+.name {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  white-space: normal !important;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  width: 306rpx;
+  font-size: 28rpx;
+  color: #323232;
+  position: absolute;
+  left: 212rpx;
+  top: -30rpx;
+  line-height: 34rpx;
+}
+
+.price {
+  display: block;
+  text-align: center;
+  font-size: 32rpx;
+  color: #292621;
+  position: absolute;
+  left: 212rpx;
+  top: 140rpx;
+}
+
+.Specifications {
+  font-size: 24rpx;
+  color: #999999;
+  position: absolute;
+  left: 212rpx;
+  top: 50rpx;
+}
+
+.number {
+  font-size: 32rpx;
+  color: #888888;
+  position: absolute;
+  top: 140rpx;
+  right: 0rpx;
+}
+
+.goods {
+  height: 240rpx;
+  padding: 30rpx;
+}
+
+.goodItem {
+  margin-bottom: 36rpx;
+}
+
+.details {
+  width: 100%;
+  height: 260rpx;
+  padding: 29rpx;
+}
+
+.detailItem {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10rpx;
+}
+
+.btn_refund {
+  width: 100%;
+  padding: 10rpx 0rpx;
+  position: relative;
+}
+
+.refund {
+  display: inline-block;
+  width: 150rpx;
+  height: 55rpx;
+  border: 1px solid #FF2B41;
+  border-radius: 28rpx;
+  font-size: 26rpx;
+  color: #FF2B41;
+  text-align: center;
+  line-height: 50rpx;
+  position: absolute;
+  right: 0rpx;
+}
+
+.process {
+  width: 100%;
+  height: 160rpx;
+  padding: 48rpx 92rpx;
+}
+
+.sureOrder_foot {
+  width: 100%;
+  height: 100rpx;
+  position: fixed;
+  bottom: 0rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0rpx 20rpx;
+  box-sizing: border-box;
+}
+
+.moneyAll {
+  display: flex;
+  align-items: center;
+}
+
+.moneyAll text:first-child {
+  color: #333333;
+  font-size: 18rpx;
+
+}
+
+.moneyAll text:last-child {
+  color: #FF2150;
+  font-size: 26rpx;
+}
+.goPay{
+  display: flex;
+  align-items: center;
+}
+.order_right{
+  width: 188rpx;
+  height: 126rpx;
+  float: right;
+  margin-top: 40rpx;
+  margin-right: 30rpx;
+}

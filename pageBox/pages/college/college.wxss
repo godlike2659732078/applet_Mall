@@ -1,0 +1,81 @@
+/* pages/college/college.wxss */
+
+@import '/app.wxss';
+
+page {
+  height: 100%;
+  /* background-color: red; */
+}
+
+#reset {
+  position: fixed;
+  top: 0;
+  display: block;
+  width: 100%;
+}
+
+van-tabs {
+  position: fixed;
+  top: 10%;
+  width: 100%;
+}
+
+.contain {
+  margin-top: 10rpx;
+  width: 100%;
+  height: 85vh;
+  z-index: 10000;
+}
+
+.scroll {
+  overflow-x: auto;
+  overflow-y: scroll;
+  overflow-x: auto;
+  overflow-y: scroll;
+}
+
+.college_box {
+  width: 100%;
+  height: 150rpx;
+  /* background-color: rgba(247, 247, 247, 0.667); */
+  padding: 24rpx 20rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.image {
+  width: 140rpx;
+  height: 100%;
+  background-color: teal;
+}
+
+.image_ {
+  width: 140rpx;
+  height: 100%;
+
+}
+
+.text_box {
+  width: 60%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+}
+
+.title {
+  width: 100%;
+}
+
+.time_author {
+  width: 100%;
+}
+
+.time_author text {
+  font-size: 24rpx;
+  color: #aaaa;
+}
+
+.time_author text:last-child {
+  margin-left: 30rpx;
+}

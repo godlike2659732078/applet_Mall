@@ -1,0 +1,93 @@
+<view>
+	<van-nav-bar id="reset" title="搜索" bind:click-left="onClickLeft" custom-style="height:{{navH}}rpx; background:linear-gradient(to right, #ff592d,#ff2e40);  ">
+
+		<view style="height:100rpx;display:flex;align-items:center" slot="left">
+			<van-icon name="arrow-left" custom-class="icon " size="40rpx" />
+		</view>
+	</van-nav-bar>
+	<view class="contain">
+		<view class="search_box">
+			<van-search name="{{ value }}" placeholder="请输入搜索关键词" show-action bind:search="onSearch" />
+		</view>
+		<!-- <view class="title">
+			<text>热门搜索</text>
+		</view> -->
+		<view class="hotBox" wx:if="{{a==0}}">
+			<text wx:for="{{searchHotList}}" wx:key="index" data-name="{{item}}" bindtap="searchAction" class="btn_s">
+			{{item}}
+			</text>
+		</view>
+		<block wx:if="{{a==1}}">
+			<van-tabs class="tabs" active="{{ active }}" swipeable bind:change="onChange">
+				<block wx:for="{{categoryList}}" wx:key="index">
+					<van-tab title="{{item.title}}" data-id="{{item.id}}">
+						<view class="order_container">
+							<scroll-view scroll-y="true" bindscrolltolower="loadMore" style="height:76.6vh;width:100%;position:fixed;bottom:0rpx">
+								<!-- <view class="goodsList" wx:if="{{active==0}}">
+									<block wx:for="{{orderList}}" wx:key="index">
+
+										<view class="boxs">
+											<view class="box_image" data-id="{{item.goodsId}}" bindtap="gointDetail">
+												<image class="image_item" src="{{item.goodsImg}}"></image>
+											</view>
+											<view class="box_items">
+												<text class="item_title">
+												{{item.goodsName}}
+												</text>
+												<text class="item_price">￥{{item.goodsPrice}}</text>
+											</view>
+										</view>
+
+									</block>
+								</view> -->
+								<block wx:for="{{orderList}}" wx:key="index">
+									<view class="orderBox" wx:if="{{active==0}}">
+										<!-- 商品详情 -->
+										<view class="orderall" bindtap="goDetail" data-items="{{item}}">
+											<view class="image">
+												<image class="orderImage" src="{{item.image}}"></image>
+											</view>
+											<text class="name">
+											{{item.name}}
+											</text>
+											<view class="integral">
+												<!-- <van-button round type="info" size="mini" color="#FF2B41">购物积分</van-button> -->
+												<text class="btn">包邮</text>
+											</view>
+											<text class="price">￥{{item.price}}</text>
+											<text class="nums_people">{{item.sales}}人付款</text>
+										</view>
+
+									</view>
+								</block>
+								<view wx:if="{{active==1}}">
+									<block wx:for="{{orderList}}" wx:key="index">
+										<view class="nav_right_items">
+											<view class="head_image">
+												<image class="_image" src="{{item.photo}}">
+												</image>
+											</view>
+											<view class="head_text">
+												<text class="text_name">
+												{{item.name}}
+												</text>
+												<text class="text_big">平均消费:￥{{item.consumptionErPerson}} </text>
+												<view class="person_box">
+													<text class="text_choose">{{item.salesVolumeSimulate}}人付款</text>
+													<view class="look">
+														<van-icon name="eye-o" /><text class="peopleNums">{{item.pageView}} </text>
+													</view>
+												</view>
+												<van-button class="goToDetail" size="mini" color="#FF3742" round type="info" bindtap="gotoShopDetails" data-id="{{item.id}}">立即进入</van-button>
+											</view>
+										</view>
+									</block>
+								</view>
+							</scroll-view>
+						</view>
+					</van-tab>
+				</block>
+			</van-tabs>
+		</block>
+	</view>
+</view>

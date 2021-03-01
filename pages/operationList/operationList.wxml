@@ -1,0 +1,51 @@
+<!--pages/address/address.wxml-->
+<view>
+	<van-nav-bar id="reset" title="我的积分" bind:click-left="onClickLeft" custom-style="height:{{navH}}rpx; background:linear-gradient(to right, #ff592d,#ff2e40);">
+		<view style="height:100rpx;display:flex;align-items:center" slot="left">
+			<van-icon name="arrow-left" custom-class="icon " size="40rpx" />
+		</view>
+	</van-nav-bar>
+	<view class="contain">
+		<view class="head_allnums">
+			<view class="box">
+				<text>总积分</text>
+				<text>{{details.amount}}</text>
+			</view>
+		</view>
+		<view class="headPortrait">
+			<text>积分名称</text>
+			<view class="img_box">
+				<image class="head_image" mode="scaleToFill" src="{{details.image}}"></image>
+				<text class="coinName">{{details.coinName}}</text>
+			</view>
+		</view>
+		<view class="item_box">
+			<text class="title">冻结积分</text>
+			<text class="name">{{details.frozenAmt}}</text>
+		</view>
+
+		<view class="item_box">
+			<text class="title">可用积分</text>
+			<text class="name">{{details.useAmt}}</text>
+		</view>
+		<view class="items" bindtap="gotoPlace">
+			<text class="title">积分地址</text>
+			<van-icon name="arrow" color="#C5C5C5" />
+		</view>
+		<view class="items" bindtap="gotoOperation">
+			<text class="title">积分明细</text>
+			<van-icon name="arrow" color="#C5C5C5" />
+		</view>
+		<view class="items" bindtap="gotoBrief">
+			<text class="title">积分简介</text>
+			<van-icon name="arrow" color="#C5C5C5" />
+		</view>
+
+		<view class="signOut">
+			<text class="in" bindtap="gotoPlace">转入</text>
+			<text class="out" bindtap="showUnout" wx:if="{{showUnOut==true}}">转出</text>
+			<text class="out" bindtap="gotoOut" wx:else>转出</text>
+
+		</view>
+	</view>
+</view>

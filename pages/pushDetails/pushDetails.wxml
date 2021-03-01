@@ -1,0 +1,23 @@
+<import src="../../wxParse/wxParse.wxml" />
+<view id="app">
+	<van-nav-bar id="reset" title="通知详情" bind:click-left="onClickLeft" custom-style="height:{{navH}}rpx; background:linear-gradient(to right, #ff592d,#ff2e40);  ">
+		<view style="height:100rpx;display:flex;align-items:center" slot="left">
+			<van-icon name="arrow-left" custom-class="icon " size="40rpx" />
+		</view>
+	</van-nav-bar>
+	<view class="contain">
+
+		<view class="detail_head">
+			<view class="headImage">
+				<image class="headImage" src="{{detailBox.icon}}"></image>
+			</view>
+			<view class="text_box">
+				<text>{{detailBox.title}}</text>
+				<text>{{detailBox.createTime}}</text>
+			</view>
+		</view>
+		<view class="detai_box">
+			<template is="wxParse" data="{{wxParseData:content.nodes}}" />
+		</view>
+	</view>
+</view>

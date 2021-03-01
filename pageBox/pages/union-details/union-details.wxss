@@ -1,0 +1,60 @@
+@import '/wxParse/wxParse.wxss';
+
+page {
+  height: 100%;
+
+}
+
+/* 2.主盒子 */
+.contain {
+  padding: 0rpx;
+  width: 100%;
+  /* 宽度占屏幕的100% */
+  height: 89.8vh;
+  /* 高度占屏幕的100% */
+  background-color: #f5f5f5;
+  /* 背景颜色 */
+  padding: 0rpx 20rpx;
+  overflow-x: auto;
+  overflow-y: scroll;
+}
+
+.bussiness_head {
+  width: 100%;
+  height: 300rpx;
+  background: rgb(241, 241, 241);
+  border-radius: 20rpx;
+  margin-top: 20rpx;
+}
+
+.bussiness_head image {
+  display: block;
+  border-radius: 20rpx;
+  width: 100%;
+  height: 100%;
+}
+
+.bussiness_text {
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.bussiness_text text {
+  width: 100%;
+  margin: 0rpx;
+  font-size: 26rpx;
+  margin: 8rpx;
+}
+
+.business_foot {
+  width: 100%;
+
+}
+
+/* 隐藏滚动条 */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}

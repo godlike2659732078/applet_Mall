@@ -1,0 +1,29 @@
+<!--pages/address/address.wxml-->
+<view>
+	<van-nav-bar id="reset" title="安全中心" bind:click-left="onClickLeft" custom-style="height:{{navH}}rpx; background:linear-gradient(to right, #ff592d,#ff2e40);  ">
+		<view style="height:100rpx;display:flex;align-items:center" slot="left">
+			<van-icon name="arrow-left" custom-class="icon " size="40rpx" />
+		</view>
+	</van-nav-bar>
+	<view class="contain">
+		<view class="footBox"> 
+		<view class="items" bindtap="goToSetpwd">
+			<text class="title">支付密码设置</text>
+			<van-icon name="arrow" color="#C5C5C5" />
+		</view>
+		<view class="items" bindtap="goToChange">
+			<text class="title">修改登录密码</text>
+			<van-icon name="arrow" color="#C5C5C5" />
+		</view>
+		<view class="items" bindtap="goToName">
+			<text class="title">实名认证</text>
+			<view class="status">
+			<text>{{status}}</text>
+			</view>
+			
+		</view>
+	</view>
+
+
+</view>
+</view>

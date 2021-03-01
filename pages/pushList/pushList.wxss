@@ -1,0 +1,140 @@
+/* pages/college/college.wxss */
+
+@import '/app.wxss';
+
+page {
+  height: 100%;
+  background-color: rgb(245, 245, 245);
+}
+
+#reset {
+  position: fixed;
+  top: 0;
+  display: block;
+  width: 100%;
+}
+
+van-tabs {
+  position: fixed;
+  top: 10%;
+  width: 100%;
+}
+
+.contain {
+  position: fixed;
+  top: 11%;
+  width: 100%;
+  height: 85vh;
+  z-index: 10000;
+}
+
+.scroll {
+  overflow-x: auto;
+  overflow-y: scroll;
+  overflow-x: auto;
+  overflow-y: scroll;
+}
+
+.college_box {
+  width: 100%;
+  height: 150rpx;
+  background-color: rgb(255, 255, 255);
+  padding: 24rpx 20rpx;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1rpx solid rgb(241, 241, 241);
+}
+
+.image {
+  width: 140rpx;
+  height: 100%;
+
+}
+
+.image_ {
+  width: 140rpx;
+  height: 100%;
+}
+.text_box {
+  width: 75%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+}
+.title {
+  width: 100%;
+  color: #000;
+}
+.titles{
+  width: 100%;
+  color: #aaaa;
+}
+.time_author {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.time_author text {
+  font-size: 24rpx;
+  color: #aaaa;
+
+}
+.notice_text {
+  display: block;
+  width: 350rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: right;
+  font-size: 26rpx;
+  color: #ff061f;
+
+}
+
+.notice_right_view swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.notice_right_view {
+  width: 60%;
+  height: 42rpx;
+}
+
+.notice_left_view .notic_title {
+  margin-left: 10rpx;
+  font-size: 30rpx;
+  color: #333333;
+  font-weight: bold;
+}
+
+.notice_left_view .notice_image {
+  width: 40rpx;
+  height: 42rpx;
+}
+
+.notice_left_view {
+  width: 40%;
+  height: 42rpx;
+}
+
+.notice_view {
+  width: 92%;
+  margin-top: 20rpx;
+  padding: 26rpx 20rpx;
+  border-radius: 20rpx;
+  background: #ffffff;
+  display: flex;
+  /* position: fixed;
+  box-sizing: border-box;
+  top: 10%; */
+}
+.headerBox{
+  width: 100%;
+height: auto;
+display: flex;
+justify-content: center;
+margin-bottom: 20rpx;
+}

@@ -1,0 +1,75 @@
+<!--pages/buyvip/buyvip.wxml-->
+
+<view>
+	<van-nav-bar id="reset" title="开通" bind:click-left="onClickLeft" custom-style="height:{{navH}}rpx; background:linear-gradient(to right, #ff592d,#ff2e40);  ">
+	<view style="height:100rpx;display:flex;align-items:center" slot="left">
+			<van-icon name="arrow-left" custom-class="icon " size="40rpx" />
+		</view>
+	</van-nav-bar>
+	<view class="contain">
+		<form bindsubmit="formSubmit">
+			<view class="head_box">
+				<view class="image_user">
+					<image class="image_user" mode="aspectFill" src="{{userContent.headImage}}" />
+				</view>
+				<view class="namebox">
+					<text class="name">{{userContent.nickname}}</text>
+					<text class="lv">{{lv}}</text>
+				</view>
+			</view>
+			<view class="vipBox">
+				<block wx:for="{{vipList}}" wx:key="index">
+					<view class="{{item.vipbtn}}" data-obj="{{item}}" bindtap="getObj">
+						<text class="{{item.vipType}}">{{item.title}}</text>
+						<text wx:if="{{item.fee==0}}" class="{{item.price}}">免费</text>
+						<text wx:else  class="{{item.price}}">￥{{item.fee}}</text>
+						<text  class="{{item.oldPrice}}">￥{{item.old_fee}}</text>
+						<text  class="{{item.money_btn}}">立省{{item.old_fee-item.fee}}元</text>
+					</view>
+				
+				</block>
+			</view>
+			<view class="charge_type">
+				<view class="choose">
+					<text>选择支付方式</text>
+				</view>
+				<view class="pay_type">
+					<van-radio-group name="radio" value="{{ radio }}" bind:change="onChange">
+						<view class="wechat_pay">
+							<view class="image_box">
+								<image src="../../images/user/weChartw.png"></image>
+							</view>
+							<view class="text_box">
+								<text>微信客户端支付</text>
+								<text>推荐安装微信5.0及以上版本使用</text>
+							</view>
+							<van-radio name="1" icon-size="40rpx" checked-color="#68DD56"></van-radio>
+						</view>
+					</van-radio-group>
+				</view>
+			</view>
+			<view class="instructions">
+				<van-divider contentPosition="center" customStyle="color: #999999; border-color: #999999; font-size: 26rpx;margin:0rpx;padding:0rpx 100rpx">
+					购买须知
+				</van-divider>
+
+				<text>1.注册即成为普通会员.</text>
+				<text>2.链上商城为您提供不同vip服务.</text>
+				<text>3.本产品已经开通vip，不可退款，尽请理解.</text>
+				<text>4.若有疑问，可根据App中的客服联系方式联系客服.</text>
+			</view>
+			<view class="aggrement">
+				<van-checkbox class="agreeIcon" icon-size="30rpx" checked-color="#FF2B41" value="{{ checked }}" shape="square" bind:change="changeChecked">
+				</van-checkbox>
+
+				我同意<text class="agree" bindtap="gotoAgree_vip">《开通会员协议》</text>
+
+			</view>
+			<view class="charge_btns" >
+				<van-button wx:if="{{levels!=3}}" form-type="submit" class="charge_btn" block round color="linear-gradient(to right, #FF5D2B, #FF2B41)">
+					立即开通
+				</van-button>
+			</view>
+		</form>
+	</view>
+</view>

@@ -1,0 +1,111 @@
+<view>
+	<van-nav-bar id="reset" title="我的订单" bind:click-left="onClickLeft" custom-style="height:{{navH}}rpx; background:linear-gradient(to right, #ff592d,#ff2e40);  ">
+		<view style="height:100rpx;display:flex;align-items:center" slot="left">
+			<van-icon name="arrow-left" custom-class="icon " size="40rpx" />
+		</view>
+	</van-nav-bar>
+	<view class="contain">
+		<view class="head" wx:if="{{detailData.status==0}}">
+			<text>{{status}}</text>
+			<image class="order_right" src="../../images/order/orderMessage/my_order_right.png"></image>
+		</view>
+		<view class="head" wx:elif="{{detailData.status==1}}">
+			<text>{{status}}</text>
+			<image class="order_right" src="../../images/order/orderMessage/my_order_right.png"></image>
+		</view>
+		<view class="head" wx:elif="{{detailData.status==3}}">
+			<text >{{status}}</text>
+			<text class="clock" bindtap="gotoLogistics">点击查看物流</text>
+			<image class="order_right" src="../../images/order/orderMessage/my_order_right.png"></image>
+		</view>
+		<view class="head" wx:elif="{{detailData.status==4}}">
+			<text >{{status}}</text>
+			<text class="clock" bindtap="gotoLogistics">点击查看物流</text>
+			<image class="order_right" src="../../images/order/orderMessage/my_order_right.png"></image>
+		</view>
+		<view class="head" wx:elif="{{detailData.status==2||detailData.status==12}}">
+			<text>{{status}}</text>
+			<text  class="clock">{{status_back}}</text>
+			<image class="order_right" src="../../images/order/orderMessage/my_order_right.png"></image>
+		</view>
+		<view class="goods">
+			<block wx:for="{{detailData.product}}" wx:key="index">
+				<view class="goodItem">
+					<view class="image">
+						<image class="orderImage" src="{{item.img}}"></image>
+					</view>
+					<text class="name">
+					{{item.name}}
+					</text>
+					<text class="price">{{coinType}}{{item.goodsPrice}}</text>
+					<text class="Specifications" wx:for="{{item.specifications}}" wx:key="index">
+						规格：{{item.value}}
+								</text>
+					<text class="number">x{{item.proNum}}</text>
+				</view>
+			</block>
+		</view>
+		<view class="useAddress">
+			<view class="address_head">
+				<text class="receive">
+收货人：{{detailData.addressName}}
+</text>
+				<text class="phone">{{detailData.addressPhone}}</text>
+			</view>
+			<text class="address">收货地址：{{detailData.address}}</text>
+			<van-icon name="arrow" class="goToAddress" size="30rpx" color="#D9D9D9" />
+			<image class="border" src="../../images/order/border.png"></image>
+		</view>
+		<view class="details">
+			<view class="detailItem">
+				<text class="title">实付金额</text>
+				<text class="time">{{coinType}}{{detailData.originalAmount}}</text>
+			</view>
+			<view class="detailItem">
+				<text class="title">订单号</text>
+				<text class="time"> {{detailData.orderNo}}</text>
+			</view>
+			<view class="detailItem">
+				<text class="title">支付时间</text>
+				<text class="time">{{detailData.createTime}}</text>
+			</view>
+			<view wx:if="{{detailData.status==1||detailData.status==3||detailData.status==4}}" class="btn_refund" bindtap="goToApply">
+				<text class="refund">退款</text>
+			</view>
+			<view wx:if="{{detailData.status==2||detailData.status==12}}" class="btn_refund" bindtap="goToApply">
+				<text class="refund">修改申请</text>
+			</view>
+		</view>
+		<view class="process">
+			<van-steps steps="{{ steps }}" active-color="#FF2B41" active="{{ active }}" />
+		</view>
+		<view class="sureOrder_foot">
+			<view class="moneyAll">
+				<text>总计：</text>
+				<text>{{coinType}}{{detailData.originalAmount}}</text>
+			</view>
+			<view class="goPay">
+				<van-button wx:if="{{detailData.status==0}}" class="zhifu" size="normal" block round color="linear-gradient(to right, #FF5D2B,#FF2B41)" custom-style="height:60rpx" bindtap="gotoDel">
+					取消订单
+				</van-button>
+				<van-button wx:if="{{detailData.status==0}}" class="zhifu" size="normal" block round color="linear-gradient(to right, #FF5D2B,#FF2B41)" custom-style="height:60rpx" data-orderno="{{detailData.orderNo}}" data-goodstype="{{detailData.goodsType}}" data-paytype="{{detailData.payType}}" bindtap="gotoPay">
+					去支付
+				</van-button>
+				<van-button wx:elif="{{detailData.status==3||detailData.status==1}}" class="zhifu" size="normal" block round color="linear-gradient(to right, #FF5D2B,#FF2B41)" custom-style="height:60rpx">
+					确认收货
+				</van-button>
+				<van-button wx:elif="{{detailData.status==4}}" class="zhifu" size="normal" block round color="linear-gradient(to right, #FF5D2B,#FF2B41)" custom-style="height:60rpx">
+					已完成
+				</van-button>
+				<van-button wx:elif="{{detailData.status==6}}" class="zhifu" size="normal" block round color="linear-gradient(to right, #FF5D2B,#FF2B41)" custom-style="height:60rpx" data-orderno="{{detailData.orderNo}}" bindtap="gotoPay">
+					已取消
+				</van-button>
+				<van-button wx:elif="{{detailData.status==12||detailData.status==2}}" class="zhifu" size="normal" block round color="linear-gradient(to right, #FF5D2B,#FF2B41)" custom-style="height:60rpx" data-orderno="{{detailData.orderNo}}">
+					{{status_back}}
+				</van-button>
+			</view>
+		</view>
+	</view>
+
+
+</view>

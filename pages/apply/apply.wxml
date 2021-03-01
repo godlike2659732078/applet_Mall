@@ -1,0 +1,53 @@
+<view>
+	<van-nav-bar id="reset" title="申请退款" bind:click-left="onClickLeft" custom-style="height:{{navH}}rpx; background:linear-gradient(to right, #ff592d,#ff2e40);">
+	<view style="height:100rpx;display:flex;align-items:center" slot="left">
+			<van-icon name="arrow-left" custom-class="icon " size="40rpx" />
+		</view>
+	</van-nav-bar>
+	<view class="contain">
+		<block>
+			<view class="orderall">
+				<image class="image" src="{{goodDetail.goodsImage}}"></image>
+				<text class="apply_name">{{goodDetail.goodsTitle}}</text>
+				<text class="Specifications">
+							规格
+								</text>
+				<text class="number">x{{goodDetail.quantity}}</text>
+				<text class="price">￥{{goodDetail.price}}</text>
+			</view>
+			<view class="choose_attr_view acea-row row-between-wrapper" close-on-click-overlay="false" bindtap="showPopup">
+				<view class="choose_attr_left acea-row row-middle">
+					<text >退款原因</text>
+				</view>
+				<view>
+					<text class="choose">{{chooseReason}}</text>
+					<van-icon class="right" name="arrow" size="40rpx" style="  margin-top:10rpx" />
+				</view>
+			</view>
+			<van-popup round show="{{ show }}" position="bottom" custom-style="height:40vh;">
+				<van-picker columns="{{ actions }}" item-height="40" show-toolbar bind:cancel="cancleTp" bind:confirm="confirmTp" />
+			</van-popup>
+			<view class="applymoneys " close-on-click-overlay="false">
+				<text >退款金额:</text>
+				<text class="applyMoney">￥{{goodDetail.amount}}</text>
+			</view>
+			<view class="apply_show " close-on-click-overlay="false">
+				<text >退款说明:</text>
+				<input class="ipt_apply" type="text" bindinput="getexplain" placeholder="选填"></input>
+			</view>
+			<view class="apply_upload " close-on-click-overlay="false">
+				<text >上传凭证(最多3张)</text>
+				<view class="chooseBox">
+				<image class="chooseImage" bindtap="chooseImage1" src="{{chooseImage1}}"></image>
+				<image class="chooseImage" bindtap="chooseImage2" src="{{chooseImage2}}"></image>
+				<image class="chooseImage" bindtap="chooseImage3" src="{{chooseImage3}}"></image>
+				</view>
+			</view>
+			<van-button class="submit" size="large" color="linear-gradient(to right, #FF5D2B, #FF2B41)" bindtap="goToResponse">
+				提交
+			</van-button>
+		</block>
+
+	</view>
+
+</view>

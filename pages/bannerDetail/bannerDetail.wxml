@@ -1,0 +1,8 @@
+<import src="../../wxParse/wxParse.wxml" />
+<view id="app">
+
+	<view class="contain">
+		<web-view src="{{url}}"></web-view>
+	</view>
+
+</view>

@@ -1,0 +1,15 @@
+<view>
+	<van-nav-bar id="reset" title="钱包规则" bind:click-left="onClickLeft" custom-style="height:{{navH}}rpx; background:linear-gradient(to right, #ff592d,#ff2e40);  ">
+		<view style="height:100rpx;display:flex;align-items:center" slot="left">
+			<van-icon name="arrow-left" custom-class="icon " size="40rpx" />
+		</view>
+	</van-nav-bar>
+	<view class="contain">
+		<text class="about_shop">商城的钱包也就是每个用户所拥有的个人资金账户，其中的资金可以进行提现到支付宝或者银行卡。 钱包中的资金仅供在本平台进行购买服务。 </text>
+
+		<text class="about_shop">钱包可方便用户购买平台的商品，进行直接性的支付，也方便了售后退款等操作。</text>
+
+		<text class="about_shop">页面上提示的有可用金额和冻结金额，可用金额即是可以用来提现，或者购买使用的金额，而冻结的金额则为未操作完的金额， 当操作完成时，冻结金额会转换为可用金额。 </text>
+
+	</view>
+</view>

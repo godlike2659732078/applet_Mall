@@ -1,0 +1,20 @@
+<import src="../../../wxParse/wxParse.wxml" />
+<view>
+	<van-nav-bar id="reset" title="联盟商家" bind:click-left="onClickLeft" custom-style="height:{{navH}}rpx; background:linear-gradient(to right, #ff592d,#ff2e40);  ">
+		<view style="height:100rpx;display:flex;align-items:center" slot="left">
+			<van-icon name="arrow-left" custom-class="icon " size="40rpx" />
+		</view>
+	</van-nav-bar>
+	<view class="contain">
+		<view class="bussiness_head">
+			<image src="{{details.photo}}"></image>
+		</view>
+		<view class="bussiness_text">
+			<text>{{details.name}}</text>
+			<text>{{details.address}}</text>
+		</view>
+		<view class="business_foot">
+			<template is="wxParse" data="{{wxParseData:particulars.nodes}}" />
+		</view>
+	</view>
+</view>

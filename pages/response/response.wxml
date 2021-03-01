@@ -1,0 +1,51 @@
+<view>
+	<van-nav-bar id="reset" title="申请退款" bind:click-left="onClickLeft" custom-style="height:{{navH}}rpx; background:linear-gradient(to right, #ff592d,#ff2e40);  ">
+	<view style="height:100rpx;display:flex;align-items:center" slot="left">
+			<van-icon name="arrow-left" custom-class="icon " size="40rpx" />
+		</view>
+	</van-nav-bar>
+	<view class="contain">
+		<scroll-view scroll-y="true" style="height:90%;width:100%;">
+			<view class="head_box">
+				<view class="head_text">
+					<van-icon size="42rpx" color="#E01212" name="warning" />
+					<text class="title">退款被拒绝，建议修改申请</text>
+				</view>
+				<view class="text">
+					<text>
+			若申请被拒绝，您可以尝试修改退款申请或者联系卖家，若6天15时35分10秒内申请未处理，退款申请将自动结束
+			</text>
+				</view>
+				<view class="btns">
+					<text class="modify" bindtap="gotoApply">修改退款申请</text>
+					<text class="contact" bindtap="gotoCustom">联系客服</text>
+				</view>
+			</view>
+			<view class="main">
+				<block wx:for="{{orderDetail}}" wx:key="index">
+					<view class="main_title">
+						<text>退款信息</text>
+					</view>
+					<view class="main_news">
+						<text>商品名称：{{item.context}}</text>
+					</view>
+					<view class="main_news">
+						<text>商品价格{{item.amount}}</text>
+					</view>
+					<view class="main_news">
+						<text>退款金额：￥{{item.amount}}</text>
+					</view>
+					<view class="main_news">
+						<text>退款原因：{{item.reason}}</text>
+					</view>
+					<view class="main_news">
+						<text>退款说明：{{item.result}}</text>
+					</view>
+					<view class="main_news">
+						<text>申请时间：{{item.createTime}}</text>
+					</view>
+				</block>
+			</view>
+		</scroll-view>
+	</view>
+</view>

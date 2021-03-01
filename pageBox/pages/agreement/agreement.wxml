@@ -1,0 +1,15 @@
+<view>
+	<van-nav-bar id="reset" title="提现协议" bind:click-left="onClickLeft" custom-style="height:{{navH}}rpx; background:linear-gradient(to right, #ff592d,#ff2e40);  ">
+		<view style="height:100rpx;display:flex;align-items:center" slot="left">
+			<van-icon name="arrow-left" custom-class="icon " size="40rpx" />
+		</view>
+	</van-nav-bar>
+	<view class="contain">
+		<text class="about_shop">操作提现后您可以查询提现金额，如果提示提现成功，建议您通过网上银行，手机银行，电弧银行，ATM或柜台网点自行查询银行卡收支明细。 若查询收支明细后银行未收到该笔提现资金，请联系客服与我们反馈并说明您的情况。
+
+关于提现收费规则的说明：
+
+ 提现手续费为千分之一。用户每天可提现3次，每次可提现600元。  </text>
+
+	</view>
+</view>

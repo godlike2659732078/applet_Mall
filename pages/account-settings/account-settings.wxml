@@ -1,0 +1,70 @@
+<!--pages/address/address.wxml-->
+<view>
+	<van-nav-bar id="reset" title="账户设置" bind:click-left="onClickLeft"
+		custom-style="height:{{navH}}rpx; background:linear-gradient(to right, #ff592d,#ff2e40);  ">
+		<view style="height:100rpx;display:flex;align-items:center" slot="left">
+			<van-icon name="arrow-left" custom-class="icon " size="40rpx" />
+		</view>
+	</van-nav-bar>
+	<view class="contain">
+		<scroll-view scroll-y="true" style="height:90%;width:100%;">
+			<view class="headPortrait" bindtap="changeImage">
+				<text>头像</text>
+				<view class="img_box">
+					<image class="head_image" mode="scaleToFill" src="{{userContent.headImage}}"></image>
+					<van-icon name="arrow" color="#C5C5C5" />
+				</view>
+			</view>
+			<view class="item_box" bindtap="setUserName">
+				<text class="title">昵称</text>
+				<text class="name">{{nicknames}}</text>
+			</view>
+			<van-popup show="{{ show }}" bind:click-overlay="onClose">
+				<view class="setName">
+					<text class="title">昵称</text>
+					<form bindsubmit="formSubmit">
+						<input class="nameipt" type="text" value="{{nicknames}}" name="nickName" placeholder="请输入昵称"></input>
+						<van-button class="subBtn" form-type="submit" color="linear-gradient(to right,#FF5D2B,#FF2B41)" block round
+							custom-style="width:150rpx;height:50rpx;margin-top:40rpx">确认</van-button>
+					</form>
+				</view>
+			</van-popup>
+			<view class="item_box">
+				<text class="title">当前帐号</text>
+				<text class="name">{{userPhone}}</text>
+			</view>
+			<view class="items" bindtap="gotoUserId">
+				<text class="title">我的ID </text>
+				<van-icon name="arrow" color="#C5C5C5" />
+			</view>
+			<view class="items" bindtap="goToAddress">
+				<text class="title">收货地址设置 </text>
+				<van-icon name="arrow" color="#C5C5C5" />
+			</view>
+			<view class="item_box">
+				<text class="title">手机号绑定</text>
+				<text class="name">{{userPhone}}</text>
+			</view>
+			<view class="items" bindtap="gotoAlipy">
+				<text class="title">支付宝绑定</text>
+				<van-icon name="arrow" color="#C5C5C5" />
+			</view>
+			<view class="items" bindtap="goToSecurtys">
+				<text class="title">安全中心</text>
+				<van-icon name="arrow" color="#C5C5C5" />
+			</view>
+			<view class="footBox">
+				<view class="items" bindtap="gotoAbout">
+					<text class="title">关于链上商城</text>
+					<van-icon name="arrow" color="#C5C5C5" />
+				</view>
+				<view class="items" bindtap="gotoCustom">
+					<text class="title">联系客服</text>
+					<van-icon name="arrow" color="#C5C5C5" />
+				</view>
+			</view>
+			<view class="signOut" bindtap="clearUser">
+				<text class="outBtn">退出登录</text></view>
+		</scroll-view>
+	</view>
+</view>

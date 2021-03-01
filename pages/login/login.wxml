@@ -1,0 +1,41 @@
+<view>
+	<van-nav-bar  id="reset" title="登录" bind:click-left="onClickLeft"  custom-style="height:{{navH}}rpx; background:linear-gradient(to right, #ff592d,#ff2e40); box-shadow: none; ">
+		<view style="height:100rpx;display:flex;align-items:center" slot="left">
+			<van-icon name="arrow-left"  custom-class="icon "  size="40rpx" />
+		</view>
+	</van-nav-bar>
+	<view class="login_all">
+		<view class='bg_box'>
+			<image src='../../images/login/login_bg.png'></image>
+		</view>
+		<view class="login_title">
+			<text >登录</text>
+		</view>
+		<form bindsubmit="formSubmit">
+			<view class="login_booter">
+				<view class="first_">
+					<image class="phone" src="../../images/login/login_Tel.png"></image>
+					<input class="phoneNum" name="mobile" bindinput="getmobile" bindblur="phoneBlur" value="{{mobile}}" placeholder="手机号" placeholder-style="color:#949499; font-size:28rpx"></input>
+					<text class="hr"></text>
+				</view>
+				<view class="pwd_">
+					<image class="powerdIcon" src="../../images/login/login_pwd.png"></image>
+					<input class="powerd" password="true" name="password" bindinput="getpwd" placeholder="请输入密码" placeholder-style="color:#949499; font-size:28rpx"></input>
+				<text class="hrs"></text>
+				</view>
+				<view class="losePwd" bindtap="goToLose">
+					<text >忘记密码？</text>
+				</view>
+				<button form-type="submit"></button>
+				<view class="goToIndex">
+					<image bindtap="goToIndex" class="goIng" src="../../images/login/login_confirm.png">
+					</image>
+				</view>
+				<view class="login_register" bindtap="goToRegister">
+					<text>还没有账号？去注册</text>
+				</view>
+			</view>
+		</form>
+	</view>
+
+</view>

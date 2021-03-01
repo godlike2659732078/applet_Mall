@@ -1,0 +1,26 @@
+
+page {
+  height: 100%;
+  background-color: #fff;
+}
+/* 2.主盒子 */
+.contain {
+
+  padding: 0rpx;
+  width: 100%;
+  /* 宽度占屏幕的100% */
+  height: 89vh;
+  overflow-x: auto;
+  overflow-y: scroll;
+  /* 高度占屏幕的100% */
+  background-color: #fff;
+  /* 背景颜色 */
+
+}
+.about_shop{
+  display: block;
+  width: 100%;
+  margin-top: 40rpx;
+  font-size: 26rpx;
+  text-indent: 2em;
+}

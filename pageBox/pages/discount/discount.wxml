@@ -1,0 +1,80 @@
+<view>
+	<van-nav-bar id="reset" title="特价秒杀" bind:click-left="onClickLeft" custom-style="height:{{navH}}rpx; background:linear-gradient(to right, #ff592d,#ff2e40);  ">
+		<view style="height:100rpx;display:flex;align-items:center" slot="left">
+			<van-icon name="arrow-left" custom-class="icon " size="40rpx" />
+		</view>
+	</van-nav-bar>
+	<van-tabs swipeable active="{{ active }}" class="tabs" bind:change="getList">
+		<block wx:for="{{categoryList}}" wx:key="index">
+			<van-tab title="{{item.title}}" data-id="{{item.id}}">
+				<view class="contain">
+					<scroll-view scroll-y="true" bindscrolltolower="loadMore" style="height:82vh;width:100%;">
+						<view wx:if="{{active==0}}">
+							<block wx:for="{{goodsList}}" wx:key="index">
+								<view class="nav_right_items">
+									<view class="head_image">
+										<image class="_image" src="{{item.picture}}">
+										</image>
+									</view>
+									<view class="head_text">
+										<text class="text_name">
+										{{item.name}}
+										</text>
+										<text class="text_big">积分商品</text>
+										<view class="person_box">
+											<text class="text_choose">￥{{item.price}}</text>
+										</view>
+										<text class="text_amount">库存：{{item.price}}</text>
+										<van-button class="goToDetail" size="mini" color="#FF3742" round type="info" bindtap="gotoShopDetails" data-id="{{item.id}}">立即秒杀</van-button>
+									</view>
+								</view>
+							</block>
+						</view>
+						<view wx:if="{{active==1}}">
+							<view class="offline_dis">
+								<block wx:for="{{offline_dis}}" wx:key="index">
+									<view class="boxs">
+										<view class="left_box">
+											<text>￥{{item.lowerAmount}}</text>
+											<text>满{{item.fullAmount}}使用</text>
+										</view>
+										<view class="offline_dis_name">
+											<view class="offline_namebox">
+												<text class="offline_name">{{item.name}}</text>
+											</view>
+											<view class="date">
+												<text class="dateTime">领取后有效期{{item.expirationDay}}天</text>
+												<text class="gotoGet" data-id="{{item.id}}" bindtap="gotoCoupon">点击领取</text>
+											</view>
+										</view>
+									</view>
+								</block>
+							</view>
+						</view>
+						<view wx:if="{{active==2}}">
+							<view class="offline_dis">
+								<block wx:for="{{offline_dis}}" wx:key="index">
+									<view class="boxs">
+										<view class="left_box">
+											<text>￥{{item.lowerAmount}}</text>
+											<text>满{{item.fullAmount}}使用</text>
+										</view>
+										<view class="offline_dis_name">
+											<view class="shop_namebox">
+												<text class="shop_name">{{item.name}}</text>
+											</view>
+											<view class="date">
+												<text class="dateTime">领取后有效期{{item.expirationDay}}天</text>
+												<text class="gotoGet" data-id="{{item.id}}" bindtap="gotoCoupons">点击领取</text>
+											</view>
+										</view>
+									</view>
+								</block>
+							</view>
+						</view>
+					</scroll-view>
+				</view>
+			</van-tab>
+		</block>
+	</van-tabs>
+</view>

@@ -1,0 +1,96 @@
+/* pages/address/address.wxss */
+/* pages/buySucess/buySucess.wxss */
+/* pages/success/success.wxss */
+@import '/app.wxss';
+
+#reset {
+  display: block;
+  width: 100%;
+  position: fixed;
+  top: 0rpx;
+}
+
+page {
+  height: 100%;
+}
+
+.contain {
+  width: 100%;
+  height: 100%;
+  padding-top: 20rpx;
+  position: fixed;
+  top: 10%;
+}
+.head_box{
+  width: 100%;
+  height: 200rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1rpx solid #E0E0E0;
+}
+.head_box text:first-child{
+  color: #777777;
+  font-size: 30rpx;
+} 
+.phone{
+  color: #FF5C2C;
+  font-size: 30rpx;
+}
+.head_box text:last-child{
+  color: #777777;
+  font-size: 30rpx;
+} 
+.oldpwd{
+  width: 100%;
+  height: 68rpx;
+  padding: 0rpx 26rpx;
+  display: flex;
+  align-items: center;
+}
+.oldpwd text{
+color: #999999;
+font-size: 28rpx;
+}
+.oldpwd_iptbox{
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  padding: 0rpx 24rpx;
+  justify-content: space-between;
+}
+.oldpwd_iptbox text{
+  color: #262626;
+  font-size: 28rpx;
+}
+.newpwd{
+  width: 100%;
+  height: 68rpx;
+  padding: 0rpx 26rpx;
+  display: flex;
+  align-items: center;
+}
+.newpwd text{
+color: #999999;
+font-size: 28rpx;
+}
+.determine_btn {
+  width: 100%;
+  height: 98rpx;
+  display: flex;
+  justify-content: center;
+  margin-top: 278rpx;
+}
+
+.determine {
+  color: #fff;
+  font-size: 32rpx;
+  text-align: center;
+  line-height: 32rpx;
+  display: block;
+  width: 600rpx;
+  height: 98rpx;
+  border-radius: 48rpx;
+
+}

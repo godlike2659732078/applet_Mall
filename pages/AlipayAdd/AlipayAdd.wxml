@@ -1,0 +1,31 @@
+<!--pages/address/address.wxml-->
+<view>
+	<van-nav-bar id="reset" title="添加支付宝" bind:click-left="onClickLeft" custom-style="height:{{navH}}rpx; background:linear-gradient(to right, #ff592d,#ff2e40);  ">
+		<view style="height:100rpx;display:flex;align-items:center" slot="left">
+			<van-icon name="arrow-left" custom-class="icon " size="40rpx" />
+		</view>
+	</van-nav-bar>
+	<view class="contain">
+		<form bindsubmit="formSubmit">
+			<view class="setBox">
+				<view class="set_pwd">
+					<text>支付宝账号</text>
+					<input type="number" name="card" password="true" placeholder="请输入支付宝账号" placeholder-class="placeholderStyle"></input>
+				</view>
+				<view class="set_pwd">
+					<text>手机号</text>
+					<input type="number" name="phone" password="true" placeholder="请输入手机号" placeholder-class="placeholderStyle"></input>
+				</view>
+				<view class="get_phone">
+					<text>姓名</text>
+					<input type="text" name="realName"  placeholder="请输入支付宝实名认证名" placeholder-class="placeholderStyle"></input>
+				</view>
+			</view>
+			<view class="determine_btn">
+				<van-button form-type="submit" class="determine" block round color="linear-gradient(to right, #FF5D2B, #FF2B41)">
+					确定
+				</van-button>
+			</view>
+		</form>
+	</view>
+</view>

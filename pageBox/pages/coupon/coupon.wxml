@@ -1,0 +1,160 @@
+<view>
+	<van-nav-bar id="reset" title="兑换优惠券" bind:click-left="onClickLeft" custom-style="height:{{navH}}rpx; background:linear-gradient(to right, #ff592d,#ff2e40);  ">
+		<van-icon name="arrow-left" slot="left" custom-class="icon " custom-style="height:{{navH}}rpx; line-height:{{navH+40}}rpx;" size="40rpx" />
+	</van-nav-bar>
+	<view class="contain" wx:if="{{type==1}}">
+		<view class="typeBox">
+			<text class="title">订单信息</text>
+		</view>
+
+		<view class="goods">
+			<view class="goodItem">
+				<view class="image">
+					<image class="orderImage" src="{{details.photo}}"></image>
+				</view>
+				<text class="name">
+				{{details.name}}
+				</text>
+				<text class="price">{{componay}}:{{details.price}}</text>
+				<text class="Specifications">
+				满￥{{details.fullAmount}}减{{details.lowerAmount}}
+				</text>
+				<text class="number">x1</text>
+			</view>
+			<view class="allnum">
+				<text class="text">共{{1}}张优惠券   合计：
+      </text>
+				<text class="allMoney">{{componay}}:{{details.price}}</text>
+			</view>
+		</view>
+		<view class="weBox">
+			<view class="payType">
+				<text class="title">积分余额：</text>
+				<view class="showYue">
+					<block wx:for="{{coinType}}" wx:key="index">
+						<view>
+							<text class="coinYue">{{item.coinName}}:</text>
+							<text class="yueItems">{{item.coinUseAmt}}</text>
+						</view>
+					</block>
+				</view>
+			</view>
+			<view class="payType">
+				<text class="title">支付方式：</text>
+				<van-radio-group class="groups" value="{{ radios }}" bind:change="changeRadios">
+					<block wx:for="{{coinType}}" wx:key="index">
+						<van-radio name="{{index+1}}" icon-size="34rpx" checked-color="#FF2150">{{item.coinName}}</van-radio>
+					</block>
+				</van-radio-group>
+			</view>
+
+			<view class="sureOrder_foot">
+				<view class="moneyAll">
+					<text>合计：</text>
+					<text>{{componay}}:{{details.price}}</text>
+				</view>
+				<van-button size="normal" block="true" block round color="linear-gradient(to right, #FF5D2B,#FF2B41)" bindtap="showInputLayer" custom-style="height:60rpx">
+					立即兑换
+				</van-button>
+			</view>
+		</view>
+		<view wx:if='{{showPayPwdInput}}'>
+			<view class='bg_layer'></view>
+			<view class='input_main'>
+				<view class='input_title'>
+					<view class='input_back' catchtap='hidePayLayer'><text></text></view>
+					<text>输入支付密码</text>
+				</view>
+				<view class='input_tip'><text></text></view>
+				<view class='input_row' catchtap='getFocus'>
+					<view class='pwd_item' wx:for='{{6}}' wx:key='item' wx:for-index='i'>
+						<text wx:if='{{pwdVal.length>i}}'></text>
+					</view>
+				</view>
+				<view class='forget_pwd' catchtap='hidePayLayer'>忘记密码</view>
+				<input class='input_control' password type='number' focus='{{payFocus}}' bindinput='inputPwd' maxlength='6' />
+				<!-- <van-button size="normal" block="true" block round color="linear-gradient(to right, #FF5D2B,#FF2B41)" bindtap="showInputLayer" custom-style="height:80rpx;width:600rpx;margin-top:200rpx">
+					立即兑换
+				</van-button> -->
+			</view>
+		</view>
+	</view>
+	<view class="contain" wx:elif="{{type==2}}">
+		<view class="typeBox">
+			<text class="title">订单信息</text>
+		</view>
+		<view class="goods">
+			<view class="goodItem">
+				<view class="image">
+					<image class="orderImage" src="{{details.shopPhoto}}"></image>
+				</view>
+				<text class="name">
+				{{details.name}}
+				</text>
+				<text class="price">{{componay}}:{{details.price}}</text>
+				<text class="Specifications">
+				满￥{{details.fullAmount}}减{{details.lowerAmount}}
+				</text>
+				<text class="number">x1</text>
+			</view>
+			<view class="allnum">
+				<text class="text">共{{1}}张优惠券   合计：
+      </text>
+				<text class="allMoney">{{componay}}:{{details.price}}</text>
+			</view>
+		</view>
+		<view class="weBox">
+			<view class="payType">
+				<text class="title">积分余额：</text>
+				<view class="showYue">
+					<block wx:for="{{coinType}}" wx:key="index">
+						<view>
+							<text class="coinYue">{{item.coinName}}:</text>
+							<text class="yueItems">{{item.coinUseAmt}}</text>
+						</view>
+					</block>
+				</view>
+			</view>
+			<view class="payType">
+				<text class="title">支付方式：</text>
+
+				<van-radio-group class="groups" value="{{ radios }}" bind:change="changeRadio">
+					<block wx:for="{{coinType}}" wx:key="index">
+						<van-radio name="{{index+1}}" icon-size="28rpx" checked-color="#FF2150">{{item.coinName}}</van-radio>
+					</block>
+				</van-radio-group>
+			</view>
+
+			<view class="sureOrder_foot">
+				<view class="moneyAll">
+					<text>合计：</text>
+					<text>{{componay}}:{{details.price}}</text>
+				</view>
+				<van-button size="normal" block="true" block round color="linear-gradient(to right, #FF5D2B,#FF2B41)" bindtap="showInputLayer" custom-style="height:60rpx">
+					立即兑换
+				</van-button>
+			</view>
+		</view>
+		<view wx:if='{{showPayPwdInput}}'>
+			<view class='bg_layer'></view>
+			<view class='input_main'>
+				<view class='input_title'>
+					<view class='input_back' catchtap='hidePayLayer'><text></text></view>
+					<text>输入支付密码</text>
+				</view>
+				<view class='input_tip'><text></text></view>
+				<view class='input_row' catchtap='getFocus'>
+					<view class='pwd_item' wx:for='{{6}}' wx:key='item' wx:for-index='i'>
+						<text wx:if='{{pwdVal.length>i}}'></text>
+					</view>
+				</view>
+				<view class='forget_pwd' catchtap='hidePayLayer'>忘记密码</view>
+				<input class='input_control' password type='number' focus='{{payFocus}}' bindinput='inputPwds' maxlength='6' />
+				<!-- <van-button size="normal" block="true" block round color="linear-gradient(to right, #FF5D2B,#FF2B41)" bindtap="showInputLayer" custom-style="height:80rpx;width:600rpx;margin-top:200rpx">
+					立即兑换
+				</van-button> -->
+			</view>
+		</view>
+	</view>
+
+</view>

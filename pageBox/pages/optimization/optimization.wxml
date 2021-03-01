@@ -1,0 +1,46 @@
+<view>
+	<van-nav-bar id="reset" title="链下优选" bind:click-left="onClickLeft" custom-style="height:{{navH}}rpx; background:linear-gradient(to right, #ff592d,#ff2e40);  ">
+		<view style="height:100rpx;display:flex;align-items:center" slot="left">
+			<van-icon name="arrow-left" custom-class="icon " size="40rpx" />
+		</view>
+	</van-nav-bar>
+</view>
+<!--主盒子-->
+<view class="container">
+	<!-- 左侧栏 -->
+	<view class='nav_left'>
+		<view wx:for="{{categoryList}}" wx:key="index" class="nav_left_items {{curNav == item.id ? 'active' : ''}}" bindtap="switchRightTab" data-id="{{item.id}}">
+			{{item.name}}
+		</view>
+	</view>
+	<!-- 右侧栏 -->
+	<view class="nav_right">
+		<scroll-view scroll-y="true" bindscrolltolower="loadMore" style="height:100%;width:100%;">
+			<block wx:for="{{placeList}}" wx:key="index">
+
+				<view class="nav_right_items">
+					<view class="head_image">
+						<image class="_image" src="{{item.photo}}">
+						</image>
+					</view>
+					<view class="head_text">
+						<text class="text_name">
+						{{item.name}}
+						</text>
+						<text class="text_big">平均消费:{{item.consumptionErPerson}} </text>
+						<view class="person_box">
+							<text class="text_choose">{{item.salesVolumeSimulate}} 人付款</text>
+							<view class="look">
+								<van-icon name="eye-o" /><text class="peopleNums">{{item.pageView}} </text>
+							</view>
+						</view>
+						<!-- <view class="place">
+							<van-icon name="location-o" size="30rpx" /><text >10km</text>
+						</view> -->
+						<van-button class="goToDetail" size="mini" color="#FF3742" round type="info" bindtap="gotoOpDetails" data-id="{{item.id}}" data-offlineid="{{item.offlineId}}">立即进入</van-button>
+					</view>
+				</view>
+			</block>
+		</scroll-view>
+	</view>
+</view>

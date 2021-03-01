@@ -1,0 +1,82 @@
+<view>
+	<van-nav-bar id="reset" title="我的订单" bind:click-left="onClickLeft" custom-style="height:{{navH}}rpx; background:linear-gradient(to right, #ff592d,#ff2e40);  ">
+		<view style="height:100rpx;display:flex;align-items:center" slot="left">
+			<van-icon name="arrow-left" custom-class="icon " size="40rpx" />
+		</view>
+	</van-nav-bar>
+	<van-tabs active="{{ active }}" swipeable bind:change="onChange">
+		<block wx:for="{{categoryList}}" wx:key="index">
+			<van-tab nav-class="tabs" title="{{item.title}}" data-id="{{item.id}}">
+				<!-- 订单列表区域 -->
+				<view class="order_container">
+					<!-- 无无订单状态 -->
+					<view class="box" wx:if="{{orderList.length==0}}">
+						<image class="noOrder" src="../../images/order/orderMessage/no_order.png">
+						</image>
+						<text class="text">暂无订单记录!</text>
+					</view>
+					<!-- 有订单状态 -->
+					<view wx:if="{{orderList.length>0}}">
+						<scroll-view scroll-y="true" bindscrolltolower="loadMore" style="height:83.2vh;width:100%;">
+							<block wx:for="{{orderList}}" wx:for-item="listItems" wx:key="index">
+								<view class="orderBox">
+									<!-- 订单头 -->
+									<view class="orderHead">
+										<van-icon name="shop-o" size="38rpx" color="#999999" />
+										<text wx:if="{{listItems.shopName!=null&&listItems.shopName!=''}}" class="dpName" bindtap="goToOrderdetail" data-id="{{listItems.id}}" data-orderno="{{listItems.orderNo}}">{{listItems.shopName}}></text>
+										<text wx:else class="dpName" bindtap="goToOrderdetail" data-id="{{listItems.id}}" data-orderno="{{listItems.orderNo}}">积分商品></text>
+										<text class="wait" wx:if="{{listItems.status==0}}">待支付</text>
+										<text class="wait" wx:if="{{listItems.status==1}}">待发货</text>
+										<text class="wait" wx:if="{{listItems.status==3}}">待收货</text>
+										<text class="wait" wx:if="{{listItems.status==4||listItems.status==5}}">已完成</text>
+										<text class="wait" wx:if="{{listItems.status == 2||listItems.status==12}}">退款中</text>
+
+									</view>
+									<!-- 商品详情 -->
+									<block wx:for="{{listItems.goods}}" wx:key="index">
+										<view class="orderall" bindtap="goToOrderdetail" data-id="{{listItems.id}}" data-orderno="{{listItems.orderNo}}">
+											<view class="image">
+												<image class="orderImage" src="{{item.goodsImg}}"></image>
+											</view>
+											<text class="name" wx:if="{{item.goodsName!=null}}">
+											{{item.goodsName}}
+											</text>
+											<text class="name" wx:else>
+									积分商品
+											</text>
+											<text class="price" wx:if="{{listItems.buyType=='cash'}}">￥{{item.price}}</text>
+											<text class="price" wx:elif="{{listItems.buyType=='coin'}}">{{item.coin}}{{item.price}}</text>
+											<text class="Specifications" wx:for="{{item.option}}" wx:key="index">
+											{{item.title}}:{{item.attrs}}
+											</text>
+											<text class="number">x{{item.goodsNumber}}</text>
+											<view class="integral" wx:if="{{showJifen==1&&listItems.shopName!=null}}">
+												<text class="btn">购物积分</text>
+												<text class="intDetail">购买该商品赠送 {{item.giveCoinNumber}} {{item.giveCoinName}} 积分</text>
+											</view>
+											<view wx:elif="{{listItems.shopName==null||showJifen==0}}">
+
+											</view>
+										</view>
+									</block>
+									<!-- 操作 -->
+									<view class="order_foot">
+										<view class="nums_money">
+											<text class="nums">共{{listItems.goods.length}}件商品，总计：</text>
+											<text class="allMoney" wx:if="{{listItems.buyType=='cash'}}">￥{{listItems.total}}</text>
+											<text class="allMoney" wx:elif="{{listItems.buyType=='coin'}}">{{listItems.goods[0].coin}}{{listItems.total}}</text>
+										</view>
+										<text wx:if="{{listItems.status==0}}" class="pay" data-id="{{listItems.id}}" data-orderno="{{listItems.orderNo}}" data-buyType="{{listItems.buyType}}" bindtap="goToSub">去支付</text>
+										<text wx:elif="{{listItems.status==3||listItems.status==1}}" class="pay" bindtap="goToconfirm" data-id="{{listItems.id}}">确认收货</text>
+										<text wx:elif="{{listItems.status==2||listItems.status==12}}" class="pay" bindtap="delBack" data-orderno="{{listItems.orderNo}}">取消退款</text>
+										<text wx:elif="{{listItems.status==5||listItems.status==4}}" class="pay" bindtap="goToOrderdetail" data-id="{{listItems.id}}" data-orderno="{{listItems.orderNo}}">查看</text>
+									</view>
+								</view>
+							</block>
+						</scroll-view>
+					</view>
+				</view>
+			</van-tab>
+		</block>
+	</van-tabs>
+</view>

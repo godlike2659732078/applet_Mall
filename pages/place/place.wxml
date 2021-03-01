@@ -1,0 +1,27 @@
+<!--pages/share/share.wxml-->
+<view>
+	<van-nav-bar id="reset" title="积分地址" bind:click-left="onClickLeft" custom-style="height:{{navH}}rpx; background:linear-gradient(to right, #ff592d,#ff2e40);  ">
+		<view style="height:100rpx;display:flex;align-items:center" slot="left">
+			<van-icon name="arrow-left" custom-class="icon " size="40rpx" />
+		</view>
+	</van-nav-bar>
+	<view class="contain">
+		<view class="headBox">
+			<text class="place">地址：{{link.address}}</text>
+			<van-button block round bindtap="copyCode" custom-style="width:200rpx;height:60rpx;margin-top:40rpx;border:2rpx solid #fff" color="linear-gradient(to right, #ff592d,#ff2e40)">
+				点击复制
+			</van-button>
+		</view>
+    	<view class="headPortrait">
+			<text>积分名称</text>
+			<view class="img_box">
+				<image class="head_image" mode="scaleToFill" src="{{link.coinImage}}"></image>
+				<text class="coinName">{{link.coinName}}</text>
+			</view>
+		</view>
+			<view class="image_box">
+				<image class="shareImage" src="{{link.addressImage}}"></image>
+			</view>
+      <text class="talk">扫一扫二维码也可以获得地址</text>
+	</view>
+</view>

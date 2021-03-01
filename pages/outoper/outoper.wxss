@@ -1,0 +1,116 @@
+/* pages/address/address.wxss */
+/* pages/buySucess/buySucess.wxss */
+/* pages/success/success.wxss */
+@import '/app.wxss';
+
+#reset {
+  display: block;
+  width: 100%;
+  position: fixed;
+  top: 0rpx;
+}
+
+page {
+  height: 100%;
+  background-color: #fff;
+}
+.contain {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 11%;
+}
+
+
+.title {
+  display: block;
+  width: auto;
+  font-size: 26rpx;
+  color: #999999;
+}
+.userName{
+  width: 70%;
+}
+.addressAll{
+  height: 160rpx;
+  padding: 20rpx 28rpx;
+  position: relative;
+  box-sizing: border-box;
+border: 1px solid rgb(238, 238, 238);
+
+}
+.place{
+  height: 80rpx;
+  padding: 20rpx 28rpx;
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.right{
+  display: flex;
+  align-items: center;
+}
+.chooseAddress{
+  font-size: 26rpx;
+  color: #999999;
+}
+.addressAll text{
+  display: inline-block;
+  width: 100%;
+  color: #999999;
+  font-size:26rpx ;
+}
+.textarea{
+  display:inline-block;
+  width: 100%;
+  height: 80rpx;
+  
+}
+
+.del{
+  width: 100%;
+  height: 100rpx;
+  margin-top: 30rpx;
+  padding: 36rpx 0rpx;
+}
+.del text{
+display: block;
+width: 100%;
+text-align: center;
+font-size: 30rpx;
+color: #FF2B41;
+}
+.num{
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx 28rpx;
+  align-items: center;
+  
+}
+.num text{
+  font-size: 28rpx;
+}
+.num_item{
+  font-size: 24rpx;
+  color: #FF2B41;
+}
+.place_title{
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx 28rpx;
+  align-items: center;
+  font-size: 26rpx;
+}
+.ipt{
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx 28rpx;
+  align-items: center;
+  font-size: 26rpx;
+  border-bottom: 1rpx solid rgb(230, 230, 230);
+}
+input{
+  width: 600rpx;
+}

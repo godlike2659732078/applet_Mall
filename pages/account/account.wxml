@@ -1,0 +1,49 @@
+<!--pages/share/share.wxml-->
+<view>
+	<van-nav-bar id="reset" title="我的钱包" bind:click-left="onClickLeft" custom-style="height:{{navH}}rpx; background:linear-gradient(to right, #ff592d,#ff2e40);  ">
+		<view style="height:100rpx;display:flex;align-items:center" slot="left">
+			<van-icon name="arrow-left" custom-class="icon " size="40rpx" />
+		</view>
+	</van-nav-bar>
+
+	<view class="account_container">
+		<view class="head_box">
+			<view class="balance_box">
+				<text>{{amount.useAmt}}</text>
+				<text>可用金额（元）</text>
+			</view>
+			<view class="box_foot">
+				<text class="frozen">冻结金额</text>
+				<text class="nums">￥{{amount.frozenAmt}}</text>
+			</view>
+		</view>
+		<view class="btnBox">
+			<text class="modify" bindtap="showPopup">提现</text>
+			<text class="contact" bindtap="goToRecharge">充值</text>
+		</view>
+		<van-popup show="{{ show }}" position="bottom" round custom-style="height: 492rpx;" bind:close="onClose">
+			<van-picker show-toolbar columns="{{ columns }}" bind:confirm="confirm" bind:cancel="onCancel" />
+		</van-popup>
+		<view class="indexes_box">
+			<view class="examine" bindtap="goToAudit">
+				<view class="icon_text">
+					<image src="../../images/user/toexamine.png"></image>
+					<text>提现审核</text>
+				</view>
+				<van-icon size="30rpx" color="#C5C5C5" name="arrow" />
+			</view>
+			<view class="rule" bindtap="gotoRule">
+				<view class="icon_text">
+					<image src="../../images/user/rule.png"></image>
+					<text>规则介绍</text>
+				</view>
+				<van-icon size="30rpx" color="#C5C5C5" name="arrow" />
+			</view>
+		</view>
+		<view class="fixBox" bindtap="goToIncome">
+			<van-icon color="#fff" size="26rpx" name="records" />
+			<text>明细</text>
+		</view>
+	</view>
+
+</view>
